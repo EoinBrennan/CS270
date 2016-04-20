@@ -3,9 +3,9 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
-//this is a tester push130493djc
     var images = new Array();
     var in_school = false;
+    var in_ents = false;
 
     preload = function() {
 	    for (i = 0; i < preload.arguments.length; i++) {
@@ -14,6 +14,27 @@
 	    }
     }
 
+    $.fn.cleanUp = function() {
+      in_school = false;
+      in_ents = false;
+
+      $('.info_btn').hide();
+
+      $('#left_half').css({
+          "opacity" : '1',
+      });
+      
+      $('#right_half').css({
+          "opacity" : '1',
+      });
+
+      $('#no_irish_btn').hide();
+      $('#teachers_btn').hide();
+      $('#conditions_btn').hide();
+      $('#marriage_btn').hide();
+    
+    };
+
     $(document).ready(function() {
         
         // Set up functions
@@ -21,7 +42,9 @@
 	            "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ursus_arctos_-_Norway.jpg",
 	            "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
 	            "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
-	            "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg");
+	            "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
+              "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
+              "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png");
       
         $('#left_half').css({
             "background-image" : "url('" + images[0].src + "')",
@@ -35,11 +58,19 @@
 	    $('#no_irish_btn').hide();
 	    $('#teachers_btn').hide();
 	    $('#marriage_btn').hide();
-	    
+      $('#title_ent').hide();
+
 	    // School Section
 	    
 	    $('#school_button').click(function() {
-	        in_school = true;
+          //cleanup everything
+          $('#body').cleanUp();
+
+          in_school = true;
+          
+          //hide everything that should be hidden first
+          $('.stuff_to_hide').hide();
+
 	        $('#no_irish_btn').show();
 	        $('#teachers_btn').show();
 	        $('#sidebar_text').text("Life was hard for young people in the past. School was no different. Though, even then... That 1916 classroom is VERY empty.");
@@ -95,6 +126,28 @@
             }, function() {
             $(this).css({"border-style" : "none"});
         });
+
+        //Entertainment section
+      
+      $('#entertainment_button').click(function() {
+          in_ents = true;
+
+          $('#body').cleanUp();
+          $('#sidebar_text').text("Entertainment stuff");
+          
+          $('#title_ent').text("Entertainment");
+          $('#title_ent').show();
+
+           $('#left_half').css({
+                "background-image" : "url('" + images[5].src + "')",
+                "opacity" : '0.4',
+          });
+      
+          $('#right_half').css({
+                "background-image" : "url('" + images[6].src + "')",
+                "opacity" : '0.4',
+          });
+      });
     });
 </script>
 
@@ -134,6 +187,23 @@ html, body {
   font-size: 25px;
   font-family: "Arial", sans-serif;
   line-height: 30px;
+}
+
+#title_ent{
+  width: 22%;
+  height: 55px;
+  top: 45%;
+  float: left;
+  left: 27%;
+  position: fixed;
+  z-index: 1000;
+  font-size: 50px;
+  background-color: #ff9933;
+  color: #0066ff; 
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: red;
 }
 
 #ireland_button {
@@ -212,15 +282,19 @@ html, body {
   position: fixed;
   bottom: 50px;
   right: 28%;
-  width:60px;
-  height: 60px;
-  border-radius:100%;
-  background-color:green;
+  width:120px;
+  height: 120px;
+  border-radius:20%;
+  overflow: hidden;
+  background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Video-Game-Controller-Icon-IDV-edit.svg/120px-Video-Game-Controller-Icon-IDV-edit.svg.png");
 }
 </style>
 </head>
 
 <body id="body">
+
+<div id = "title_ent" class="stuff_to_hide">Title</div>
+
 <div id="left_half">
 <div id="no_irish_btn" class="info_btn"></div>
 <div id="teachers_btn" class="info_btn"></div>
@@ -232,7 +306,7 @@ html, body {
 </div>
 
 <div id="sidebar">
-<span id="sidebar_text">Text</span>
+<span id="sidebar_text"></span>
 </div>
 
 <div id="ireland_button">
