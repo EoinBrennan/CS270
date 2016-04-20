@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+    var images = new Array();
+    var in_school = false;
+
+    preload = function() {
+	    for (i = 0; i < preload.arguments.length; i++) {
+		    images[i] = new Image()
+		    images[i].src = preload.arguments[i]
+	    }
+    }
+
+    $(document).ready(function() {
+        
+        // Set up functions
+	    preload("http://i0.wp.com/cdn.bgr.com/2015/10/bear.jpg?w=625",
+	            "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ursus_arctos_-_Norway.jpg",
+	            "http://i482.photobucket.com/albums/rr189/celt88/secondary-pupil.jpg", 
+	            "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
+	            "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg");
+      
+        $('#left_half').css({
+            "background-image" : "url('" + images[0].src + "')",
+	    });
+      
+	    $('#right_half').css({
+            "background-image" : "url('" + images[1].src + "')",
+	    });
+	    
+	    $('#conditions_btn').hide();
+	    $('#no_irish_btn').hide();
+	    $('#teachers_btn').hide();
+	    $('#marriage_btn').hide();
+	    
+	    // School Section
+	    
+	    $('#school_button').click(function() {
+	        in_school = true;
+	        $('#no_irish_btn').show();
+	        $('#teachers_btn').show();
+	        
+	         $('#left_half').css({
+                "background-image" : "url('" + images[2].src + "')",
+	        });
+      
+	        $('#right_half').css({
+                "background-image" : "url('" + images[3].src + "')",
+	        });
+	    });
+  
+        $('#right_half').mouseenter(function() {
+            if(in_school) {
+                $('#sidebar').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the children of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
+  	            $('#right_half').css({
+    	            "background-image" : "url('" + images[4].src + "')",
+		        });
+		        $('#conditions_btn').show();
+		        $('#marriage_btn').show();
+		    }
+        }); 
+         $('#right_half').mouseleave(function() {   
+            if(in_school) {
+      	        $('#right_half').css({
+    	            "background-image" : "url('" + images[3].src + "')",
+		        });
+		        $('#conditions_btn').hide();
+		        $('#marriage_btn').hide();
+		    }
+        });
+        
+        $('#conditions_btn').click(function(){
+            $('#sidebar').text("Working conditions were...");
+        });
+        
+        $('#marriage_btn').click(function(){
+            $('#sidebar').text("Age of marriage...");
+        });
+        
+        $('#no_irish_btn').click(function(){
+            $('#sidebar').text("Irish wasn't taught in schools...");
+        });
+        
+        $('#no_irish_btn').hover(
+            function(){
+                $('#no_irish_btn').css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+            }, function() {
+            $('#no_irish_btn').css({"border-style" : "none"});
+        });
+        
+        $('#teachers_btn').click(function(){
+            $('#sidebar').text("Most teachers weren't qualified...");
+        });
+        
+        $('#teachers_btn').hover(
+            function(){
+                $('#teachers_btn').css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+            }, function() {
+            $('#teachers_btn').css({"border-style" : "none"});
+        });
+    });
+</script>
+
+<style>
+html, body {
+  height: 100%;
+}
+
+#left_half {
+  width: 40%;
+  height: 100%;
+  float: left;
+  background-size: 100% 100%;
+  background-repeat : no-repeat;
+}
+
+#right_half {
+  width: 40%;
+  height: 100%;
+  position: fixed;
+  float: right;
+  right: 22%;
+  background-size: 100% 100%;
+  background-repeat : no-repeat;
+}
+
+#sidebar {
+  width: 20%;
+  height: 100%;
+  float: right;
+}
+
+#ireland_button {
+  float: left;
+  position: fixed;
+  bottom: 50px;
+  left: 10%;
+  width:60px;
+  height: 60px;
+  border-radius:100%;
+  background-color: red;
+}
+
+#school_button {
+  float: left;
+  position: fixed;
+  bottom: 50px;
+  left: 24%;
+  width:120px;
+  height: 120px;
+  border-radius:100%;
+  background:url("http://i482.photobucket.com/albums/rr189/celt88/SchoolIconPNG.png");
+}
+
+#no_irish_btn {
+  float: right;
+  position: fixed;
+  bottom: 10%;
+  left: 15%;
+  width: 25%;
+  height: 30%;
+}
+
+#teachers_btn {
+  float: right;
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  width:105px;
+  height: 100%;
+}
+
+#conditions_btn {
+  float: left;
+  position: fixed;
+  bottom: 300px;
+  left: 50%;
+  width:60px;
+  height: 60px;
+  border-radius:100%;
+  background-color: black;
+}
+
+#marriage_btn {
+  float: left;
+  position: fixed;
+  bottom: 200px;
+  left: 40%;
+  width:100px;
+  height: 100px;
+  border-radius:100%;
+  background-color: white;
+}
+
+#home_button {
+  float: right;
+  position: fixed;
+  bottom: 50px;
+  right: 48%;
+  width:60px;
+  height: 60px;
+  border-radius:100%;
+  background-color: blue;
+}
+
+#entertainment_button {
+  float: right;
+  position: fixed;
+  bottom: 50px;
+  right: 28%;
+  width:60px;
+  height: 60px;
+  border-radius:100%;
+  background-color:green;
+}
+</style>
+</head>
+
+<body id="body">
+<div id="left_half">
+<div id="no_irish_btn"></div>
+<div id="teachers_btn"></div>
+</div>
+
+<div id="right_half">
+<div id="conditions_btn"></div>
+<div id="marriage_btn"></div>
+</div>
+
+<div id="sidebar">
+Text
+</div>
+
+<div id="ireland_button">
+</div>
+
+<div id="home_button">
+</div>
+
+<div id="school_button">
+</div>
+
+<div id="entertainment_button">
+</div>
+</body>
+</html>
