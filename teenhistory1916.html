@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -137,23 +138,24 @@
           $('#sidebar_text').text("Entertainment stuff");
           
           //Entertainment title
-          $('#title_ent').text("Entertainment");
           $('#title_ent').show();
 
-            ///Film button
-          $('#film_button').text("Film");
+            ///Film section
           $('#film_button').show();
           $('#film_button').click(function(){
                 //1916 button
               $('#film_1916').show();
-              $('#film_1916').text("1916");
 
               $('#film_1916').click(function(){
-                  var film1916 = "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around £1m. This is the same as €30m today.";
 
-                    ///this isn't working!!!
-                  $('sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around £1m. This is the same as €30m today.");
-              });              
+                    console.log("1916 clicked");
+                  $('#sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around 1m pounds. This is the same as 30m euro today.");
+              });            
+
+              $('#film_today').click(function(){
+
+                  $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. Some of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. These films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. In 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
+              });  
 
                 //today button
               $('#film_today').show();
@@ -171,6 +173,43 @@
                 "background-image" : "url('" + images[6].src + "')",
                 "opacity" : '0.4',
           });
+
+
+          //////Games section/////////
+          $('#games_button').show();
+          $('#games_button').click(function(){
+                //1916 button
+              $('#games_1916').show();
+
+              $('#games_1916').click(function(){
+
+                    console.log("1916 clicked");
+                  $('#sidebar_text').text( "Games that people played 100 years ago or so are in a way very different to today's games but not so different in other. For example, sports have not changed very much since then. GAA and rugby was just as popular then compared to today, even moreso in some respects. In 1920 on a day called Bloody Sunday, a football match in Croke Park was attacked by British forces. Sadly, 14 people were killed and 65 were injured.");
+              });       
+
+              //today button     
+
+              $('#games_today').click(function(){
+
+                  $('#sidebar_text').text("In the Ireland of today, GAA sports and rugby is still very popular as any native Irish man or woman will defend passionately. Some things that have changed are immediately obvious. We now have access to a vast quantity of digital media and gaming. New video games, consoles, phones and other technologies come out everyday. We even have a new sport called first person view (FPV) drone racing! (Check it out!)");
+              });  
+
+              $('#games_today').show();
+              $('#games_today').text("Today");
+          });
+
+            //Left image
+           $('#left_half').css({
+                "background-image" : "url('" + images[5].src + "')",
+                "opacity" : '0.4',
+          });
+      
+          //right image
+          $('#right_half').css({
+                "background-image" : "url('" + images[6].src + "')",
+                "opacity" : '0.4',
+          });
+
       });
     });
 </script>
@@ -284,6 +323,7 @@ html, body {
   background-color: blue;
 }
 
+/*Entertainment section*/
 #entertainment_button {
   float: right;
   position: fixed;
@@ -361,22 +401,74 @@ html, body {
   border-color: red;
 }
 
+#games_button{
+  width: 15%;
+  height: 40px;
+  top: 23%;
+  left: 45%;
+  position: fixed;
+  z-index: 1005;
+  font-size: 35px;
+  background-color: #ff9933;
+  color: #0066ff; 
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: red;
+}
+
+#games_1916{
+  width: 8%;
+  height: 30px;
+  top: 15%;
+  left: 40%;
+  position: fixed;
+  z-index: 1000;
+  font-size: 25px;
+  background-color: #ff9933;
+  color: #0066ff; 
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: red;
+}
+
+#games_today{
+  width: 8%;
+  height: 30px;
+  top: 15%;
+  left: 57%;
+  position: fixed;
+  z-index: 1000;
+  font-size: 25px;
+  background-color: #ff9933;
+  color: #0066ff; 
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: red;
+}
+
 </style>
 </head>
 
 <body id="body">
 
 <!--Entertainment section-->
-<div id = "title_ent" class="stuff_to_hide"></div>
-<div id = "film_button" class="stuff_to_hide"></div>
-<div id= "film_1916" class = "stuff_to_hide"></div>
-<div id= "film_today" class = "stuff_to_hide"></div>
+<div id = "title_ent" class="stuff_to_hide">Entertainment</div>
 
-<!--left half of screen-->
-<div id="left_half">
-<div id="no_irish_btn" class="info_btn"></div>
-<div id="teachers_btn" class="info_btn"></div>
-</div>
+<!--Film section-->
+<div id = "film_button" class="stuff_to_hide">Film</div>
+<div id= "film_1916" class = "stuff_to_hide">1916</div>
+<div id= "film_today" class = "stuff_to_hide">Today</div>
+
+<!--Games section-->
+<div id="games_button" class = "stuff_to_hide">Games</div>
+<div id= "games_1916" class = "stuff_to_hide">1916</div>
+<div id= "games_today" class = "stuff_to_hide">Today</div>
+
+<!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
+class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
 
 <!--right half of screen-->
 <div id="right_half">
@@ -388,7 +480,6 @@ html, body {
 <div id="sidebar">
 <span id="sidebar_text"></span>
 </div>
-
 
 <!--main screen-->
 <div id="ireland_button">
