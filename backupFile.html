@@ -32,8 +32,6 @@
       $('#teachers_btn').hide();
       $('#conditions_btn').hide();
       $('#marriage_btn').hide();
-      $('#title_ent').hide();
-      $('.stuff_to_hide').hide();
     
     };
 
@@ -56,9 +54,11 @@
             "background-image" : "url('" + images[1].src + "')",
       });
       
-
-      //cleanup everything 
-      $('body').cleanUp();
+      $('#conditions_btn').hide();
+      $('#no_irish_btn').hide();
+      $('#teachers_btn').hide();
+      $('#marriage_btn').hide();
+      $('#title_ent').hide();
 
       // School Section
       
@@ -127,8 +127,7 @@
             $(this).css({"border-style" : "none"});
         });
 
-
-      ////////Entertainment section////////
+        //Entertainment section
       
       $('#entertainment_button').click(function() {
           in_ents = true;
@@ -136,37 +135,14 @@
           $('#body').cleanUp();
           $('#sidebar_text').text("Entertainment stuff");
           
-          //Entertainment title
           $('#title_ent').text("Entertainment");
           $('#title_ent').show();
 
-            ///Film button
-          $('#film_button').text("Film");
-          $('#film_button').show();
-          $('#film_button').click(function(){
-                //1916 button
-              $('#film_1916').show();
-              $('#film_1916').text("1916");
-
-              $('#film_1916').click(function(){
-                  var film1916 = "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around £1m. This is the same as €30m today.";
-
-                    ///this isn't working!!!
-                  $('sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around £1m. This is the same as €30m today.");
-              });              
-
-                //today button
-              $('#film_today').show();
-              $('#film_today').text("Today");
-          });
-
-            //Left image
            $('#left_half').css({
                 "background-image" : "url('" + images[5].src + "')",
                 "opacity" : '0.4',
           });
       
-          //right image
           $('#right_half').css({
                 "background-image" : "url('" + images[6].src + "')",
                 "opacity" : '0.4',
@@ -211,6 +187,23 @@ html, body {
   font-size: 25px;
   font-family: "Arial", sans-serif;
   line-height: 30px;
+}
+
+#title_ent{
+  width: 22%;
+  height: 55px;
+  top: 45%;
+  float: left;
+  left: 27%;
+  position: fixed;
+  z-index: 1000;
+  font-size: 50px;
+  background-color: #ff9933;
+  color: #0066ff; 
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: red;
 }
 
 #ireland_button {
@@ -295,102 +288,27 @@ html, body {
   overflow: hidden;
   background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Video-Game-Controller-Icon-IDV-edit.svg/120px-Video-Game-Controller-Icon-IDV-edit.svg.png");
 }
-
-#title_ent{
-  width: 22%;
-  height: 55px;
-  top: 45%;
-  float: left;
-  left: 27%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 50px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
-
-#film_button{
-  width: 15%;
-  height: 40px;
-  top: 23%;
-  left: 15%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 35px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
-
-#film_1916{
-  width: 8%;
-  height: 30px;
-  top: 15%;
-  left: 10%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 25px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
-
-#film_today{
-  width: 8%;
-  height: 30px;
-  top: 15%;
-  left: 27%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 25px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
-
 </style>
 </head>
 
 <body id="body">
 
-<!--Entertainment section-->
-<div id = "title_ent" class="stuff_to_hide"></div>
-<div id = "film_button" class="stuff_to_hide"></div>
-<div id= "film_1916" class = "stuff_to_hide"></div>
-<div id= "film_today" class = "stuff_to_hide"></div>
+<div id = "title_ent" class="stuff_to_hide">Title</div>
 
-<!--left half of screen-->
 <div id="left_half">
 <div id="no_irish_btn" class="info_btn"></div>
 <div id="teachers_btn" class="info_btn"></div>
 </div>
 
-<!--right half of screen-->
 <div id="right_half">
 <div id="conditions_btn" class="info_btn"></div>
 <div id="marriage_btn" class="info_btn"></div>
 </div>
 
-<!--sidebar-->
 <div id="sidebar">
 <span id="sidebar_text"></span>
 </div>
 
-
-<!--main screen-->
 <div id="ireland_button">
 </div>
 
