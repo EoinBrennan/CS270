@@ -29,10 +29,7 @@
           "opacity" : '1',
       });
 
-      $('#no_irish_btn').hide();
-      $('#teachers_btn').hide();
-      $('#conditions_btn').hide();
-      $('#marriage_btn').hide();
+      $('.info_btn').hide();
       $('#title_ent').hide();
       $('.stuff_to_hide').hide();
     
@@ -41,8 +38,8 @@
     $(document).ready(function() {
         
         // Set up functions
-      preload("http://i0.wp.com/cdn.bgr.com/2015/10/bear.jpg?w=625",
-              "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ursus_arctos_-_Norway.jpg",
+      preload("http://i482.photobucket.com/albums/rr189/celt88/spire2016.jpg",
+              "http://i482.photobucket.com/albums/rr189/celt88/1916ruins.jpg",
               "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
               "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
               "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
@@ -71,6 +68,7 @@
           
           //hide everything that should be hidden first
           $('.stuff_to_hide').hide();
+          $('.section1').hide();
 
           $('#no_irish_btn').show();
           $('#teachers_btn').show();
@@ -127,6 +125,55 @@
             }, function() {
             $(this).css({"border-style" : "none"});
         });
+        
+        
+      // Ireland Section 
+      
+      $('#ireland_button').click(function(){
+            //cleanup everything
+          $('#body').cleanUp();
+
+          in_ireland = true;
+          
+          //hide everything that should be hidden first
+          $('.stuff_to_hide').hide();
+          $('.info_btn').hide();
+
+          $('.section1').show();
+          $('#sidebar_text').text("Ireland...");
+          
+           $('#left_half').css({
+                "background-image" : "url('" + images[0].src + "')",
+          });
+      
+          $('#right_half').css({
+                "background-image" : "url('" + images[1].src + "')",
+          });
+      });
+      
+      $('#spire_fact').click(function() {
+        $('#sidebar_text').text("In  2016, approximately 66% of Irish people live in urban areas. Crime is a major problem in certains parts of cities in Ireland.");
+      });
+      
+      $('#life_fact').click(function() {
+        $('#sidebar_text').text("Life expectancy in Ireland 2016 is 80 years of age.");
+      });
+      
+      $('#death_fact').click(function() {
+        $('#sidebar_text').text("There was a total of five hundred people killed during the fighting. Three hundred of the dead were civilians who were not involved in the fighting. There were a total of 2,500 wounded, of which 2,000 were ordinary civilians. Many teenagers took part, either as messenger-boys or in the actual fighting in Easter week 1916. In total ,40 children  got caught up in the crossfire and were killed on the streets of  Dublin in 1916.");
+      });
+      
+      $('#destroyed_fact').click(function() {
+        $('#sidebar_text').text("Guns and fires destroyed much of the surrounding city and the GPO was in absolute ruins. Dublin city centre was almost completely destroyed after the 1916 Rising.");
+      });
+      
+      $('.section1').hover(
+            function(){
+                $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+            }, function() {
+            $(this).css({"border-style" : "none"});
+        });
+      
 
 
       ////////Entertainment section////////
@@ -135,6 +182,7 @@
           in_ents = true;
 
           $('#body').cleanUp();
+          $('.section1').hide();
           $('#sidebar_text').text("Entertainment stuff");
           
           //Entertainment title
@@ -226,6 +274,18 @@ html, body {
   position: fixed;
   background-size: 100% 100%;
   background-repeat : no-repeat;
+}
+
+#column{   
+    width: 10%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 35%;
+    z-index: 10;
+    background-image: url("http://i482.photobucket.com/albums/rr189/celt88/spire.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 #right_half {
@@ -449,6 +509,42 @@ html, body {
   border-color: red;
 }
 
+#spire_fact {
+    position: fixed;
+    left: 23%;
+    width: 6%;
+    height: 75%;
+    z-index: 10;
+}
+
+#life_fact {
+    position: fixed;
+    left: 5%;
+    top: 23%;
+    width: 15%;
+    height: 30%;
+    border-radius:100%;
+    z-index: 10;
+}
+
+#destroyed_fact {
+    position: fixed;
+    right: 30%;
+    top: 15%;
+    width: 20%;
+    height: 40%;
+    z-index: 10;
+}
+
+#death_fact {
+    position: fixed;
+    right: 37%;
+    top: 62%;
+    width: 20%;
+    height: 20%;
+    z-index: 5;
+}
+
 </style>
 </head>
 
@@ -467,8 +563,17 @@ html, body {
 <div id= "games_1916" class = "stuff_to_hide">1916</div>
 <div id= "games_today" class = "stuff_to_hide">Today</div>
 
+<!-- Ireland Section -->
+<div id="spire_fact" class = "section1"></div>
+<div id="life_fact" class = "section1"></div>
+<div id="destroyed_fact" class = "section1"></div>
+<div id="death_fact" class = "section1"></div>
+
 <!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
 class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
+
+<!-- Centre Column -->
+<div id="column"></div>
 
 <!--right half of screen-->
 <div id="right_half">
