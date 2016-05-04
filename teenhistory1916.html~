@@ -564,7 +564,6 @@ html, body {
 <div class="film_section">
 	<div id= "film_1916" class = "stuff_to_hide">1916</div>
 	<div id= "film_today" class = "stuff_to_hide">Today</div>
-	<div id="chaplin_link" class = "stuff_to_hide"><iframe width="370" height="295" src=""></iframe></div>
 </div>
 <!--Games section-->
 <div id="games_button" class = "stuff_to_hide">Games</div>
