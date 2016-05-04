@@ -2,8 +2,8 @@
 
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script>
     var images = new Array();
     var in_school = false;
     var in_ents = false;
@@ -22,38 +22,38 @@
       $('.info_btn').hide();
 
       $('#left_half').css({
-          "opacity" : '1',
+        "opacity" : '1',
       });
       
       $('#right_half').css({
-          "opacity" : '1',
+        "opacity" : '1',
       });
 
       $('.info_btn').hide();
       $('#title_ent').hide();
       $('.stuff_to_hide').hide();
-    
+
     };
 
     $(document).ready(function() {
-        
+
         // Set up functions
-      preload("http://i482.photobucket.com/albums/rr189/celt88/spire2016.jpg",
-              "http://i482.photobucket.com/albums/rr189/celt88/1916ruins.jpg",
-              "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
-              "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
-              "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
-              "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
-              "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png");
-      
+        preload("http://i482.photobucket.com/albums/rr189/celt88/spire2016.jpg",
+          "http://i482.photobucket.com/albums/rr189/celt88/1916ruins.jpg",
+          "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
+          "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
+          "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
+          "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
+          "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png");
+
         $('#left_half').css({
-            "background-image" : "url('" + images[0].src + "')",
-      });
-      
-      $('#right_half').css({
-            "background-image" : "url('" + images[1].src + "')",
-      });
-      
+          "background-image" : "url('" + images[0].src + "')",
+        });
+
+        $('#right_half').css({
+          "background-image" : "url('" + images[1].src + "')",
+        });
+
 
       //cleanup everything 
       $('body').cleanUp();
@@ -74,67 +74,67 @@
           $('#teachers_btn').show();
           $('#sidebar_text').text("Life was hard for young people in the past. School was no different. Though, even then... That 1916 classroom is VERY empty.");
           
-           $('#left_half').css({
-                "background-image" : "url('" + images[2].src + "')",
+          $('#left_half').css({
+            "background-image" : "url('" + images[2].src + "')",
           });
-      
+
           $('#right_half').css({
-                "background-image" : "url('" + images[3].src + "')",
+            "background-image" : "url('" + images[3].src + "')",
           });
+        });
+
+      $('#right_half').mouseenter(function() {
+        if(in_school) {
+          $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the children of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
+          $('#right_half').css({
+            "background-image" : "url('" + images[4].src + "')",
+          });
+          $('#conditions_btn').show();
+          $('#marriage_btn').show();
+        }
+      }); 
+      $('#right_half').mouseleave(function() {   
+        if(in_school) {
+          $('#right_half').css({
+            "background-image" : "url('" + images[3].src + "')",
+          });
+          $('#conditions_btn').hide();
+          $('#marriage_btn').hide();
+        }
       });
-  
-        $('#right_half').mouseenter(function() {
-            if(in_school) {
-                $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the children of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
-                $('#right_half').css({
-                  "background-image" : "url('" + images[4].src + "')",
-            });
-            $('#conditions_btn').show();
-            $('#marriage_btn').show();
-        }
-        }); 
-         $('#right_half').mouseleave(function() {   
-            if(in_school) {
-                $('#right_half').css({
-                  "background-image" : "url('" + images[3].src + "')",
-            });
-            $('#conditions_btn').hide();
-            $('#marriage_btn').hide();
-        }
+
+      $('#conditions_btn').click(function(){
+        $('#sidebar_text').text("Working conditions were...");
+      });
+
+      $('#marriage_btn').click(function(){
+        $('#sidebar_text').text("Age of marriage...");
+      });
+
+      $('#no_irish_btn').click(function(){
+        $('#sidebar_text').text("Irish wasn't taught in most schools. Unless you were from a Gaeltacht area, Irish was an oppressed and largely forgotten language. If you think people are bad at speaking Irish now, it was even worse under English rule. Irish wasn't taught in schools until we earned our freedom in 1922. Hopefully that helps make a bit more palatable.");
+      });
+
+      $('#teachers_btn').click(function(){
+        $('#sidebar_text').text("Fewer than half of teachers in schools had any training at all. Most that did have any training were years out of date. Even worse, teacher's salaries were decided by an inspector, so they would frequently brutally beat students who failed tests. This was... less than ideal.");
+      });
+
+      $('.info_btn').hover(
+        function(){
+          $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+        }, function() {
+          $(this).css({"border-style" : "none"});
         });
-        
-        $('#conditions_btn').click(function(){
-            $('#sidebar_text').text("Working conditions were...");
-        });
-        
-        $('#marriage_btn').click(function(){
-            $('#sidebar_text').text("Age of marriage...");
-        });
-        
-        $('#no_irish_btn').click(function(){
-            $('#sidebar_text').text("Irish wasn't taught in most schools. Unless you were from a Gaeltacht area, Irish was an oppressed and largely forgotten language. If you think people are bad at speaking Irish now, it was even worse under English rule. Irish wasn't taught in schools until we earned our freedom in 1922. Hopefully that helps make a bit more palatable.");
-        });
-        
-        $('#teachers_btn').click(function(){
-            $('#sidebar_text').text("Fewer than half of teachers in schools had any training at all. Most that did have any training were years out of date. Even worse, teacher's salaries were decided by an inspector, so they would frequently brutally beat students who failed tests. This was... less than ideal.");
-        });
-        
-        $('.info_btn').hover(
-            function(){
-                $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
-            }, function() {
-            $(this).css({"border-style" : "none"});
-        });
-        
-        
+
+
       // Ireland Section 
       
       $('#ireland_button').click(function(){
             //cleanup everything
-          $('#body').cleanUp();
+            $('#body').cleanUp();
 
-          in_ireland = true;
-          
+            in_ireland = true;
+
           //hide everything that should be hidden first
           $('.stuff_to_hide').hide();
           $('.info_btn').hide();
@@ -142,14 +142,14 @@
           $('.section1').show();
           $('#sidebar_text').text("Ireland...");
           
-           $('#left_half').css({
-                "background-image" : "url('" + images[0].src + "')",
+          $('#left_half').css({
+            "background-image" : "url('" + images[0].src + "')",
           });
-      
+
           $('#right_half').css({
-                "background-image" : "url('" + images[1].src + "')",
+            "background-image" : "url('" + images[1].src + "')",
           });
-      });
+        });
       
       $('#spire_fact').click(function() {
         $('#sidebar_text').text("In  2016, approximately 66% of Irish people live in urban areas. Crime is a major problem in certains parts of cities in Ireland.");
@@ -168,10 +168,10 @@
       });
       
       $('.section1').hover(
-            function(){
-                $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
-            }, function() {
-            $(this).css({"border-style" : "none"});
+        function(){
+          $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+        }, function() {
+          $(this).css({"border-style" : "none"});
         });
       
 
@@ -184,7 +184,7 @@
           $('#body').cleanUp();
           $('.section1').hide();
           $('#sidebar_text').text("Entertainment stuff");
-          
+
           //Entertainment title
           $('#title_ent').show();
 
@@ -192,295 +192,323 @@
           $('#film_button').show();
           $('#film_button').click(function(){
 
-			//hide the game section
-			$('#games_1916').hide();
-			$('#games_today').hide();
+    			 //hide the game section
+    			$('#games_1916').hide();
+    			$('#games_today').hide();
 
-                //1916 button
-              $('#film_1916').show();
+          //1916 button
+          $('#film_1916').show();
 
-              $('#film_1916').click(function(){
-				$('#chaplin_link').show();
+          $('#film_1916').click(function(){
+            //show stuff
+            $('#chaplin_link').show();
 
-                    console.log("1916 clicked");
-                  $('#sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around 1m pounds. This is the same as 30m euro today.");
-              });            
+            //hide stuff
+            $('#starwars_link').hide();
 
-              $('#film_today').click(function(){
+            console.log("1916 clicked");
+            $('#sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around 1m pounds. This is the same as 30m euro today.");
+          });            
 
-                  $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. Some of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. These films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. In 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
-              });  
+          $('#film_today').click(function(){
 
-                //today button
-              $('#film_today').show();
-              $('#film_today').text("Today");
+            //show stuff
+            //star wars trailer link
+            $('#starwars_link').show();
+
+            //hide stuff
+            $('#chaplin_link').hide();
+
+            $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. Some of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. These films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. In 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
+
+          });  
+
+          //today button
+          $('#film_today').show();
+            
+        });
+
+          //Left image
+          $('#left_half').css({
+            "background-image" : "url('" + images[5].src + "')",
+            "opacity" : '0.4',
           });
 
-            //Left image
-           $('#left_half').css({
-                "background-image" : "url('" + images[5].src + "')",
-                "opacity" : '0.4',
-          });
-      
-          //right image
-          $('#right_half').css({
-                "background-image" : "url('" + images[6].src + "')",
-                "opacity" : '0.4',
-          });
+        //right image
+        $('#right_half').css({
+          "background-image" : "url('" + images[6].src + "')",
+          "opacity" : '0.4',
+        });
 
 
           //////Games section/////////
           $('#games_button').show();
           $('#games_button').click(function(){
 
-			$('#film_1916').hide();
-			$('#film_today').hide();
-			$('#chaplin_link').hide();
-                //1916 button
-              $('#games_1916').show();
+            //hide stuff
+            $('#film_1916').hide();
+            $('#film_today').hide();
+            $('#chaplin_link').hide();
+            $('#starwars_link').hide();
 
-              $('#games_1916').click(function(){
+            //1916 button
+            $('#games_1916').show();
 
-                    console.log("1916 clicked");
-                  $('#sidebar_text').text( "Games that people played 100 years ago or so are in a way very different to today's games but not so different in other. For example, sports have not changed very much since then. GAA and rugby was just as popular then compared to today, even moreso in some respects. In 1920 on a day called Bloody Sunday, a football match in Croke Park was attacked by British forces. Sadly, 14 people were killed and 65 were injured.");
-              });       
+            $('#games_1916').click(function(){
+
+              console.log("1916 clicked");
+              $('#sidebar_text').text( "Games that people played 100 years ago or so are in a way very different to today's games but not so different in other. For example, sports have not changed very much since then. GAA and rugby was just as popular then compared to today, even moreso in some respects. In 1920 on a day called Bloody Sunday, a football match in Croke Park was attacked by British forces. Sadly, 14 people were killed and 65 were injured.");
+            });       
 
               //today button     
 
               $('#games_today').click(function(){
 
-                  $('#sidebar_text').text("In the Ireland of today, GAA sports and rugby is still very popular as any native Irish man or woman will defend passionately. Some things that have changed are immediately obvious. We now have access to a vast quantity of digital media and gaming. New video games, consoles, phones and other technologies come out everyday. We even have a new sport called first person view (FPV) drone racing! (Check it out!)");
+                $('#sidebar_text').text("In the Ireland of today, GAA sports and rugby is still very popular as any native Irish man or woman will defend passionately. Some things that have changed are immediately obvious. We now have access to a vast quantity of digital media and gaming. New video games, consoles, phones and other technologies come out everyday. We even have a new sport called first person view (FPV) drone racing! (Check it out!)");
               });  
 
               $('#games_today').show();
               $('#games_today').text("Today");
-          });
+            });
 
             //Left image
-           $('#left_half').css({
-                "background-image" : "url('" + images[5].src + "')",
-                "opacity" : '0.4',
-          });
-      
+            $('#left_half').css({
+              "background-image" : "url('" + images[5].src + "')",
+              "opacity" : '0.4',
+            });
+
           //right image
           $('#right_half').css({
-                "background-image" : "url('" + images[6].src + "')",
-                "opacity" : '0.4',
+            "background-image" : "url('" + images[6].src + "')",
+            "opacity" : '0.4',
           });
 
-      });
-    });
+        });
+});
 </script>
 
 <style>
-html, body {
-  height: 95%;
-}
+  html, body {
+    height: 95%;
+  }
 
-#left_half {
-  width: 40%;
-  height: 100%;
-  float: left;
-  position: fixed;
-  background-size: 100% 100%;
-  background-repeat : no-repeat;
-}
+  #left_half {
+    width: 40%;
+    height: 100%;
+    float: left;
+    position: fixed;
+    background-size: 100% 100%;
+    background-repeat : no-repeat;
+  }
 
 
-#right_half {
-  width: 40%;
-  height: 100%;
-  position: fixed;
-  float: right;
-  right: 22%;
-  background-size: 100% 100%;
-  background-repeat : no-repeat;
-}
+  #right_half {
+    width: 40%;
+    height: 100%;
+    position: fixed;
+    float: right;
+    right: 22%;
+    background-size: 100% 100%;
+    background-repeat : no-repeat;
+  }
 
-#sidebar {
-  width: 20%;
-  height: 100%;
-  float: right;
-  left: 77%;
-  position: fixed;
-  background-color: BurlyWood;
-  padding: 15px;
-  color: white;
-  font-size: 25px;
-  font-family: "Arial", sans-serif;
-  line-height: 30px;
-}
+  #sidebar {
+    width: 20%;
+    height: 100%;
+    float: right;
+    left: 77%;
+    position: fixed;
+    background-color: BurlyWood;
+    padding: 15px;
+    color: white;
+    font-size: 25px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+  }
 
-#ireland_button {
-  float: left;
-  position: fixed;
-  bottom: 50px;
-  left: 10%;
-  width:60px;
-  height: 60px;
-  border-radius:100%;
-  background-color: red;
-}
+  #ireland_button {
+    float: left;
+    position: fixed;
+    bottom: 50px;
+    left: 10%;
+    width:60px;
+    height: 60px;
+    border-radius:100%;
+    background-color: red;
+  }
 
-#school_button {
-  float: left;
-  position: fixed;
-  bottom: 50px;
-  left: 24%;
-  width:120px;
-  height: 120px;
-  border-radius:100%;
-  background:url("http://i482.photobucket.com/albums/rr189/celt88/SchoolIconPNG.png");
-}
+  #school_button {
+    float: left;
+    position: fixed;
+    bottom: 50px;
+    left: 24%;
+    width:120px;
+    height: 120px;
+    border-radius:100%;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/SchoolIconPNG.png");
+  }
 
-#no_irish_btn {
-  float: right;
-  position: fixed;
-  top: 20%;
-  left: 15%;
-  width: 20%;
-  height: 15%;
-  border-radius: 100%;
-}
+  #no_irish_btn {
+    float: right;
+    position: fixed;
+    top: 20%;
+    left: 15%;
+    width: 20%;
+    height: 15%;
+    border-radius: 100%;
+  }
 
-#teachers_btn {
-  float: right;
-  position: fixed;
-  top: 40%;
-  left: 10%;
-  width:20%;
-  height: 50%;
-}
+  #teachers_btn {
+    float: right;
+    position: fixed;
+    top: 40%;
+    left: 10%;
+    width:20%;
+    height: 50%;
+  }
 
-#conditions_btn {
-  float: left;
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  width: 25%;
-  height: 30%;
-}
+  #conditions_btn {
+    float: left;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 25%;
+    height: 30%;
+  }
 
-#marriage_btn {
-  float: left;
-  position: fixed;
-  bottom: 200px;
-  left: 40%;
-  width:100px;
-  height: 100px;
-  border-radius:100%;
-}
+  #marriage_btn {
+    float: left;
+    position: fixed;
+    bottom: 200px;
+    left: 40%;
+    width:100px;
+    height: 100px;
+    border-radius:100%;
+  }
 
-#home_button {
-  float: right;
-  position: fixed;
-  bottom: 50px;
-  right: 48%;
-  width:60px;
-  height: 60px;
-  border-radius:100%;
-  background-color: blue;
-}
+  #home_button {
+    float: right;
+    position: fixed;
+    bottom: 50px;
+    right: 48%;
+    width:60px;
+    height: 60px;
+    border-radius:100%;
+    background-color: blue;
+  }
 
-/*Entertainment section*/
-#entertainment_button {
-  float: right;
-  position: fixed;
-  bottom: 50px;
-  right: 28%;
-  width:120px;
-  height: 120px;
-  border-radius:20%;
-  overflow: hidden;
-  background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Video-Game-Controller-Icon-IDV-edit.svg/120px-Video-Game-Controller-Icon-IDV-edit.svg.png");
-}
+  /*Entertainment section*/
 
-#title_ent{
-  width: 22%;
-  height: 55px;
-  top: 45%;
-  float: left;
-  left: 27%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 50px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
+  /*color scheme:
+  dark colour: #1D0000
+  light red:AA3939
+  offwhite: FAD8D6;
+  */
+  #entertainment_button {
+    float: right;
+    position: fixed;
+    bottom: 50px;
+    right: 28%;
+    width:120px;
+    height: 120px;
+    border-radius:20%;
+    overflow: hidden;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Video-Game-Controller-Icon-IDV-edit.svg/120px-Video-Game-Controller-Icon-IDV-edit.svg.png");
+  }
 
-#film_button{
-  width: 15%;
-  height: 40px;
-  top: 23%;
-  left: 15%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 35px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
+  #title_ent{
+    width: 300px;
+    height: 55px;
+    top: 45%;
+    float: left;
+    left: 27%;
+    position: fixed;
+    z-index: 1;
+    font-size: 50px;
+    background-color: #AA3939;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+  }
 
-#film_1916{
-  width: 8%;
-  height: 30px;
-  top: 15%;
-  left: 10%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 25px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
+  #film_button{
+    width: 200px;
+    height: 40px;
+    top: 23%;
+    left: 15%;
+    position: fixed;
+    z-index: 1000;
+    font-size: 35px;
+    background-color: #275E6D;
+    color: #021013; 
+    border-color: #AF763B;
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+  }
 
-#film_today{
-  width: 8%;
-  height: 30px;
-  top: 15%;
-  left: 27%;
-  position: fixed;
-  z-index: 1000;
-  font-size: 25px;
-  background-color: #ff9933;
-  color: #0066ff; 
-  text-align: center;
-  border-radius: 10px;
-  border-style: inset;
-  border-color: red;
-}
+  #film_1916{
+    width: 8%;
+    height: 30px;
+    top: 15%;
+    left: 10%;
+    position: fixed;
+    z-index: 1000;
+    font-size: 25px;
+    background-color: #FFDBB7;
+    color: #8E5A24; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #AF763B;
+  }
 
-#chaplin_link{
-	position: absolute;
-	top: 350px;
-	left: 20px;
-	z-index: 500;
+  #film_today{
+    width: 8%;
+    height: 30px;
+    top: 15%;
+    left: 27%;
+    position: fixed;
+    z-index: 1000;
+    font-size: 25px;
+    background-color: #FFDBB7;
+    color: #8E5A24;
+    border-color: #AF763B;
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+  }
+
+  #chaplin_link{
+   position: absolute;
+   top: 300px;
+   left: 20px;
+   z-index: 500;
+ }
+
+ #starwars_link{
+  position: absolute;
+  top: 300px;
+  left: 320px;
+  z-index: 500;
 }
 
 #games_button{
-  width: 15%;
+  width: 200px;
   height: 40px;
   top: 23%;
   left: 45%;
   position: fixed;
   z-index: 1005;
   font-size: 35px;
-  background-color: #ff9933;
-  color: #0066ff; 
+  background-color: #275E6D;
+  color: #021013; 
   text-align: center;
   border-radius: 10px;
   border-style: inset;
-  border-color: red;
+  border-color: #AF763B;
 }
 
 #games_1916{
@@ -491,12 +519,12 @@ html, body {
   position: fixed;
   z-index: 1000;
   font-size: 25px;
-  background-color: #ff9933;
-  color: #0066ff; 
+  background-color: #FFDBB7;
+    color: #8E5A24;
+    border-color: #AF763B; 
   text-align: center;
   border-radius: 10px;
   border-style: inset;
-  border-color: red;
 }
 
 #games_today{
@@ -507,48 +535,48 @@ html, body {
   position: fixed;
   z-index: 1000;
   font-size: 25px;
-  background-color: #ff9933;
-  color: #0066ff; 
+  background-color: #FFDBB7;
+    color: #8E5A24;
+    border-color: #AF763B;
   text-align: center;
   border-radius: 10px;
   border-style: inset;
-  border-color: red;
 }
 
 #spire_fact {
-    position: fixed;
-    left: 23%;
-    width: 6%;
-    height: 75%;
-    z-index: 10;
+  position: fixed;
+  left: 23%;
+  width: 6%;
+  height: 75%;
+  z-index: 10;
 }
 
 #life_fact {
-    position: fixed;
-    left: 5%;
-    top: 23%;
-    width: 15%;
-    height: 30%;
-    border-radius:100%;
-    z-index: 10;
+  position: fixed;
+  left: 5%;
+  top: 23%;
+  width: 15%;
+  height: 30%;
+  border-radius:100%;
+  z-index: 10;
 }
 
 #destroyed_fact {
-    position: fixed;
-    right: 30%;
-    top: 15%;
-    width: 20%;
-    height: 40%;
-    z-index: 10;
+  position: fixed;
+  right: 30%;
+  top: 15%;
+  width: 20%;
+  height: 40%;
+  z-index: 10;
 }
 
 #death_fact {
-    position: fixed;
-    right: 37%;
-    top: 62%;
-    width: 20%;
-    height: 20%;
-    z-index: 5;
+  position: fixed;
+  right: 37%;
+  top: 62%;
+  width: 20%;
+  height: 20%;
+  z-index: 5;
 }
 
 </style>
@@ -556,39 +584,40 @@ html, body {
 
 <body id="body">
 
-<!--Entertainment section-->
-<div id = "title_ent" class="stuff_to_hide">Entertainment</div>
+  <!--Entertainment section-->
+  <div id = "title_ent" class="stuff_to_hide">Entertainment</div>
 
-<!--Film section-->
-<div id = "film_button" class="stuff_to_hide">Film</div>
-<div class="film_section">
-	<div id= "film_1916" class = "stuff_to_hide">1916</div>
-	<div id= "film_today" class = "stuff_to_hide">Today</div>
-	<div id="chaplin_link" class = "stuff_to_hide"><iframe width="370" height="295" src=""></iframe></div>
-</div>
-<!--Games section-->
-<div id="games_button" class = "stuff_to_hide">Games</div>
-<div id= "games_1916" class = "stuff_to_hide">1916</div>
-<div id= "games_today" class = "stuff_to_hide">Today</div>
+    <!--Film section-->
+    <div id = "film_button" class="stuff_to_hide">Film</div>
+    <div class="film_section">
+     <div id= "film_1916" class = "stuff_to_hide">1916</div>
+     <div id= "film_today" class = "stuff_to_hide">Today</div>
+     <div id="chaplin_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/F-Y45rcGX3s?autoplay=0"></iframe></div>
+     <div id="starwars_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sGbxmsDFVnE?autoplay=0"></iframe></div>
+ </div>
+ <!--Games section-->
+ <div id="games_button" class = "stuff_to_hide">Games</div>
+ <div id= "games_1916" class = "stuff_to_hide">1916</div>
+ <div id= "games_today" class = "stuff_to_hide">Today</div>
 
-<!-- Ireland Section -->
-<div id="spire_fact" class = "section1"></div>
-<div id="life_fact" class = "section1"></div>
-<div id="destroyed_fact" class = "section1"></div>
-<div id="death_fact" class = "section1"></div>
+ <!-- Ireland Section -->
+ <div id="spire_fact" class = "section1"></div>
+ <div id="life_fact" class = "section1"></div>
+ <div id="destroyed_fact" class = "section1"></div>
+ <div id="death_fact" class = "section1"></div>
 
-<!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
-class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
+ <!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
+ class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
 
-<!--right half of screen-->
-<div id="right_half">
-<div id="conditions_btn" class="info_btn"></div>
-<div id="marriage_btn" class="info_btn"></div>
+ <!--right half of screen-->
+ <div id="right_half">
+  <div id="conditions_btn" class="info_btn"></div>
+  <div id="marriage_btn" class="info_btn"></div>
 </div>
 
 <!--sidebar-->
 <div id="sidebar">
-<span id="sidebar_text"></span>
+  <span id="sidebar_text"></span>
 </div>
 
 <!--main screen-->
