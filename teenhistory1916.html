@@ -267,18 +267,16 @@
           $('#film_button').click(function(){
 
     			 //hide the game section
-          $('#games_1916').hide();
-          $('#games_today').hide();
+           $('#games_1916').hide();
+           $('#games_today').hide();
 
-          //1916 button
+          //show stuff
           $('#film_1916').show();
+          $('#film_today').show();
+          $('#starwars_link').show();
+          $('#chaplin_link').show();
 
           $('#film_1916').click(function(){
-            //show stuff
-            $('#chaplin_link').show();
-
-            //hide stuff
-            $('#starwars_link').hide();
 
             console.log("1916 clicked");
             $('#sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around 1m pounds. This is the same as 30m euro today.");
@@ -286,19 +284,9 @@
 
           $('#film_today').click(function(){
 
-            //show stuff
-            //star wars trailer link
-            $('#starwars_link').show();
-
-            //hide stuff
-            $('#chaplin_link').hide();
-
             $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. Some of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. These films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. In 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
 
           });  
-
-          //today button
-          $('#film_today').show();
 
         });
 
@@ -342,7 +330,6 @@
               });  
 
               $('#games_today').show();
-              $('#games_today').text("Today");
             });
 
             //Left image
@@ -364,6 +351,15 @@
 <style>
   html, body {
     height: 100%;
+  }
+
+  p{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #666666;
+    color: white;
+    border-radius: 15px;
   }
 
   /*borders*/
@@ -391,12 +387,15 @@
     font-family: Verdana,Arial,sans-serif;
     font-size: 1.3em;
     text-align: center;
+
   }
 
   .ui-widget-content {
-    background: #F9F9F9;
+    background: #ffe6ee;
     border: 1px solid #4d0017;
     color: #222222;
+    line-height: 40px;
+
   }
 
   .ui-dialog {
@@ -413,6 +412,7 @@
     overflow: auto;
     position: relative;
     padding: 0 !important;
+
   }
 
   .ui-widget-header {
@@ -420,15 +420,19 @@
     border: 0;
     color: #fff;
     font-weight: normal;
-    font-size: 0.8em;
+    height: 70px;
+    line-height: 70px;
   }
 
   .ui-dialog .ui-dialog-titlebar {
     padding: 0.1em .5em;
     position: relative;
     font-size: 1em;
+
   }
   .ui-widget-overlay {
+    background: #e6e6e6;
+    opacity: 0.5;
     position: fixed;
     top: 0;
     left: 0;
@@ -546,7 +550,7 @@
     font-family: Verdana,Arial,sans-serif;
   }
 
-    #ireland_button {
+  #ireland_button {
     float: left;
     position: fixed;
     bottom: 50px;
@@ -652,10 +656,10 @@
   }
 
   #film_1916{
-    width: 8%;
+    width: 200px;
     height: 30px;
     top: 5%;
-    left: 15%;
+    left: 12%;
     position: fixed;
     z-index: 1000;
     font-size: 25px;
@@ -668,10 +672,10 @@
   }
 
   #film_today{
-    width: 8%;
+    width: 200px;
     height: 30px;
     top: 5%;
-    left: 55%;
+    left: 50%;
     position: fixed;
     z-index: 1000;
     font-size: 25px;
@@ -715,10 +719,10 @@
 }
 
 #games_1916{
-  width: 8%;
+  width: 200px;
   height: 30px;
   top: 5%;
-  left: 15%;
+  left: 12%;
   position: fixed;
   z-index: 1000;
   font-size: 25px;
@@ -731,10 +735,10 @@
 }
 
 #games_today{
-  width: 8%;
+  width: 200px;
   height: 30px;
   top: 5%;
-  left: 55%;
+  left: 50%;
   position: fixed;
   z-index: 1000;
   font-size: 25px;
@@ -832,21 +836,22 @@
 
   <!--Entertainment section-->
   <div id="myDialog1">
-    To use your history app, slide your mouse over each photo. When a white circle or box appears, click it and see what it says in the sidebar. There are four sections: country, school, home and entertainment. 
+    <p>To use your history app, slide your mouse over each photo. When a white circle or box appears, click it and see what it says in the sidebar.</p> 
+    <p>There are four sections: country, school, home and entertainment. </p>
   </div>
 
   <!--Film section-->
   <div id = "film_button" class="stuff_to_hide">Film</div>
   <div class="film_section">
-   <div id= "film_1916" class = "stuff_to_hide">1916</div>
-   <div id= "film_today" class = "stuff_to_hide">Today</div>
+   <div id= "film_1916" class = "stuff_to_hide">Film 1916</div>
+   <div id= "film_today" class = "stuff_to_hide">Film Today</div>
    <div id="chaplin_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/F-Y45rcGX3s?autoplay=0"></iframe></div>
    <div id="starwars_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sGbxmsDFVnE?autoplay=0"></iframe></div>
  </div>
  <!--Games section-->
  <div id="games_button" class = "stuff_to_hide">Games</div>
- <div id= "games_1916" class = "stuff_to_hide">1916</div>
- <div id= "games_today" class = "stuff_to_hide">Today</div>
+ <div id= "games_1916" class = "stuff_to_hide">Games 1916</div>
+ <div id= "games_today" class = "stuff_to_hide">Games Today</div>
 
  <!-- Ireland Section -->
  <div id="spire_fact" class = "section1"></div>
