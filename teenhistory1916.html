@@ -89,7 +89,7 @@
 
       $('#right_half').mouseenter(function() {
         if(in_school) {
-          $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the children of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
+          $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the teenagers of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
           $('#right_half').css({
             "background-image" : "url('" + images[4].src + "')",
           });
@@ -165,7 +165,7 @@
       });
       
       $('#death_fact').click(function() {
-        $('#sidebar_text').text("There was a total of five hundred people killed during the fighting. Three hundred of the dead were civilians who were not involved in the fighting. There were a total of 2,500 wounded, of which 2,000 were ordinary civilians. Many teenagers took part, either as messenger-boys or in the actual fighting in Easter week 1916. In total ,40 children  got caught up in the crossfire and were killed on the streets of  Dublin in 1916.");
+        $('#sidebar_text').text("There was a total of five hundred people killed during the fighting. Three hundred of the dead were civilians who were not involved in the fighting. There were a total of 2,500 wounded, of which 2,000 were ordinary civilians. Many teenagers took part, either as messenger-boys or in the actual fighting in Easter week 1916. In total ,40 teenagers  got caught up in the crossfire and were killed on the streets of  Dublin in 1916.");
       });
       
       $('#destroyed_fact').click(function() {
@@ -190,7 +190,7 @@
           //hide everything that should be hidden first
           $('.section1').hide();
           $('.section3').show();
-          $('#sidebar_text').text("Home...");
+          $('#sidebar_text').text("In 1916 entire families would typically share a room in a dwelling or a tenement house. teenagers often slept on the mattresses on the floor beside their parents bed. Today we are seeing a housing shortage and homeless crisis in Dublin and around the country. Although things have improved massively for the majority of people, there are still people who are living in poverty in Dublin.");
           
            $('#left_half').css({
                 "background-image" : "url('" + images[8].src + "')",
@@ -202,9 +202,20 @@
       });
       
       $('#potato_fact').click(function() {
-        $('#sidebar_text').text("???");
+        $('#sidebar_text').text("Due to the First World War there was strict rationing in Ireland. Essential items (butter, eggs, meat etc.) were becoming very scarce and expensive. Boiled bacon and cabbage was the most common dinner of the time, but it was the grossest parts of the animals that people had to eat, such as pigs ears and cheeks. Potatoes were a staple of the diet in Ireland, and people often made cakes and other food items from them.");
       });
    
+	$('#dwelling_fact').click(function() { 
+        $('#sidebar_text').text("There were 51,451 one room dwellings in Ireland, and nearly half were home to three or more people, sometimes many more. These dwellings were either mud huts, or equally crude one room, one window dwellings built from rubble. In Dublin 36% of all family homes were just one room, and 23% of all Dubliners were crammed into single room tenement accommodation.");
+      });
+	  
+	  $('#food_fact').click(function() { 
+        $('#sidebar_text').text("Nowadays in Ireland there is an abundance of food available and food is neither scarce nor expensive. There has never been a time in Irish history with such a wide variety and large quantity of food available as there is now. Malnutrition and its related health problems are at an all time low in Ireland."); 
+		});
+		
+		$('#homesize_fact').click(function() { 
+        $('#sidebar_text').text("The average Irish home has 2 bathrooms, with at least 1 shower in every house. Things have improved in a massive way in homes since 1916. Nowadays it is normal for teenagers to have their own bed, and most have their own bedroom too."); 
+		});
       
       $('.section3').hover(
             function(){
@@ -612,7 +623,7 @@
 #death_fact {
   position: fixed;
   right: 37%;
-  top: 62%;
+  top: 57%;
   width: 20%;
   height: 20%;
   z-index: 5;
@@ -625,6 +636,34 @@
     width: 16%;
     height: 25%;
     z-index: 10;
+}
+
+#dwelling_fact {
+    position: fixed;
+    top: 8%;
+    right: 28%;
+    width: 26%;
+    height: 33%;
+    z-index: 10;
+}
+
+#food_fact {
+    position: fixed;
+    top: 8%;
+    left: 7%;
+    width: 18%;
+    height: 30%;
+    z-index: 10;
+}
+
+#homesize_fact {
+  position: fixed;
+  left: 5%;
+  top: 43%;
+  width: 15%;
+  height: 30%;
+  border-radius:100%;
+  z-index: 10;
 }
 
 </style>
@@ -656,9 +695,9 @@
  
  <!-- Home -->
 <div id="potato_fact" class = "section3"></div>
-<div id="???_fact" class = "section3"></div>
-<div id="???_fact" class = "section3"></div>
-<div id="???_fact" class = "section3"></div>
+<div id="dwelling_fact" class = "section3"></div>
+<div id="food_fact" class = "section3"></div>
+<div id="homesize_fact" class = "section3"></div>
 
  <!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
  class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
