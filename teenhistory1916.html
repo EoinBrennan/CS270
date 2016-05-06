@@ -32,6 +32,10 @@
       $('.info_btn').hide();
       $('#title_ent').hide();
       $('.stuff_to_hide').hide();
+      $('#potato_fact').hide();
+      $('#homesize_fact').hide();
+      $('#food_fact').hide();
+      $('#dwelling_fact').hide();
 
     };
 
@@ -343,6 +347,27 @@
     background-color: #4D0A00;
   }
 
+/*borders*/
+#top, #bottom, #left, #right {
+  background: #a5ebff;
+  position: fixed;
+  z-index:1000;
+}
+#left, #right {
+  top: 0; bottom: 0;
+  width: 8px;
+}
+#left { left: 0; }
+#right { right: 0; }
+
+#top, #bottom {
+  left: 0; right: 0;
+  height: 8px;
+}
+#top { top: 0; }
+#bottom { bottom: 0; }
+
+
   #mainPage{
     height:100%;
     width:100%;
@@ -374,7 +399,7 @@
     width: 20%;
     height: 100%;
     float: right;
-    left: 77%;
+    right: 8px;
     position: fixed;
     background-color: BurlyWood;
     padding: 15px;
@@ -462,6 +487,7 @@
   light red:AA3939
   offwhite: FAD8D6;
   */
+
   #entertainment_button {
     float: right;
     position: fixed;
@@ -641,7 +667,7 @@
     position: fixed;
     bottom: 8%;
     right: 38%;
-    width: 16%;
+    width: 10%;
     height: 25%;
     z-index: 10;
 }
@@ -679,8 +705,14 @@
 
 <body id="body">
 
+<!--Body border-->
+<div id="left"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div id="bottom"></div>
 
   <!--Entertainment section-->
+  <div id="main_page"></div>
   <div id = "title_ent" class="stuff_to_hide">Entertainment</div>
 
     <!--Film section-->
