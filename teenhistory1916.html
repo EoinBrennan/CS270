@@ -44,7 +44,9 @@
           "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
           "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
           "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
-          "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png");
+          "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png",
+			"http://i482.photobucket.com/albums/rr189/celt88/irsh%20kitchen1900.jpg",
+            "http://photos3.zillowstatic.com/i_g/ISlutt5z36zuwk1000000000.jpg");
 
         $('#left_half').css({
           "background-image" : "url('" + images[0].src + "')",
@@ -57,6 +59,7 @@
 
       //cleanup everything 
       $('body').cleanUp();
+	  $('.section3').hide();
 
       // School Section
       
@@ -69,6 +72,7 @@
           //hide everything that should be hidden first
           $('.stuff_to_hide').hide();
           $('.section1').hide();
+		  $('.section3').hide();
 
           $('#no_irish_btn').show();
           $('#teachers_btn').show();
@@ -85,7 +89,7 @@
 
       $('#right_half').mouseenter(function() {
         if(in_school) {
-          $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the children of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
+          $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the teenagers of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
           $('#right_half').css({
             "background-image" : "url('" + images[4].src + "')",
           });
@@ -104,20 +108,20 @@
       });
 
       $('#conditions_btn').click(function(){
-        $('#sidebar_text').text("Working conditions were...");
-      });
-
-      $('#marriage_btn').click(function(){
-        $('#sidebar_text').text("Age of marriage...");
-      });
-
-      $('#no_irish_btn').click(function(){
-        $('#sidebar_text').text("Irish wasn't taught in most schools. Unless you were from a Gaeltacht area, Irish was an oppressed and largely forgotten language. If you think people are bad at speaking Irish now, it was even worse under English rule. Irish wasn't taught in schools until we earned our freedom in 1922. Hopefully that helps make a bit more palatable.");
-      });
-
-      $('#teachers_btn').click(function(){
-        $('#sidebar_text').text("Fewer than half of teachers in schools had any training at all. Most that did have any training were years out of date. Even worse, teacher's salaries were decided by an inspector, so they would frequently brutally beat students who failed tests. This was... less than ideal.");
-      });
+            $('#sidebar_text').text("At the turn of the century it took an annual income of at least 125 pounds to live comfortably but the average worker made between 80 and 100 pounds per year. During economic recessions many workers lost their jobs or faced sharp pay cuts. Work was often monotonous because workers performed one task over and over. Working hours were long averaging at least ten hours a day and six days a week for most workers.");
+        });
+        
+        $('#marriage_btn').click(function(){
+            $('#sidebar_text').text("Legally speaking people could get married as young as 12 or 13 (mostly girls) in the 1900s, but this was incredibly uncommon. Most people didn't get married until they were in their 20s and had an established income or line of work. However, people travelled and moved far less. Particularly in agricultural communities people would marry people they had known for most of their lives.");
+        });
+        
+        $('#no_irish_btn').click(function(){
+            $('#sidebar_text').text("Irish wasn't taught in most schools. Unless you were from a Gaeltacht area, Irish was an oppressed and largely forgotten language. If you think people are bad at speaking Irish now, it was even worse under English rule. Irish wasn't taught in schools until we earned our freedom in 1922. Hopefully that helps make a bit more palatable.");
+        });
+        
+        $('#teachers_btn').click(function(){
+            $('#sidebar_text').text("Fewer than half of teachers in schools had any training at all. Most that did have any training were years out of date. Even worse, teacher's salaries were decided by an inspector, so they would frequently brutally beat students who failed tests. This was... less than ideal. The teachers were frequently just people from the village who had done when in school themselves.");
+        });
 
       $('.info_btn').hover(
         function(){
@@ -132,6 +136,7 @@
       $('#ireland_button').click(function(){
             //cleanup everything
             $('#body').cleanUp();
+			$('.section3').hide();
 
             in_ireland = true;
 
@@ -140,7 +145,7 @@
           $('.info_btn').hide();
 
           $('.section1').show();
-          $('#sidebar_text').text("Ireland...");
+          $('#sidebar_text').text("Ireland in 1916 was one of the poorest countries in Europe. Today Ireland is a multicultural modern European country. Ireland in 2016 is one of the most developed countries in the world. In 1916, Ireland was a very poor country with very few industries and little wealth. Revolution and war were common place in Ireland in 1916. The most famous people in Ireland in 1916 were the politicians/leaders such as Padraig Pearse.");
           
           $('#left_half').css({
             "background-image" : "url('" + images[0].src + "')",
@@ -152,15 +157,15 @@
         });
       
       $('#spire_fact').click(function() {
-        $('#sidebar_text').text("In  2016, approximately 66% of Irish people live in urban areas. Crime is a major problem in certains parts of cities in Ireland.");
+        $('#sidebar_text').text("In  2016, approximately 66% of Irish people live in urban areas. Crime is a major problem in certains parts of cities in Ireland. In 2016, Dublin is the centre of political, social, ecomonic and cultural life in Ireland. The total population of Dublin city is 527,612 . Irelands second biggest city is Cork with a population of 119,230. Irelands biggest cities today include Dublin, Cork, Belfast, Galway and Limerick.");
       });
       
       $('#life_fact').click(function() {
-        $('#sidebar_text').text("Life expectancy in Ireland 2016 is 80 years of age.");
+        $('#sidebar_text').text("Life expectancy in Ireland 2016 is 80 years of age. In 2011 census, there were 1,807,360 people at work in Ireland. Some of the most famous companies in the world today are located in Ireland e.g Apple, Google, Facebook, Twitter, Intel. In 2011 census, nearly 4.9% of workers were involved in agriculture. In 2011 census, the number of farms with over one hectare (equal to 2.5 acres) was 139,860.");
       });
       
       $('#death_fact').click(function() {
-        $('#sidebar_text').text("There was a total of five hundred people killed during the fighting. Three hundred of the dead were civilians who were not involved in the fighting. There were a total of 2,500 wounded, of which 2,000 were ordinary civilians. Many teenagers took part, either as messenger-boys or in the actual fighting in Easter week 1916. In total ,40 children  got caught up in the crossfire and were killed on the streets of  Dublin in 1916.");
+        $('#sidebar_text').text("There was a total of five hundred people killed during the fighting. Three hundred of the dead were civilians who were not involved in the fighting. There were a total of 2,500 wounded, of which 2,000 were ordinary civilians. Many teenagers took part, either as messenger-boys or in the actual fighting in Easter week 1916. In total ,40 teenagers  got caught up in the crossfire and were killed on the streets of  Dublin in 1916.");
       });
       
       $('#destroyed_fact').click(function() {
@@ -172,6 +177,51 @@
           $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
         }, function() {
           $(this).css({"border-style" : "none"});
+        });
+		
+		// Home Section 
+      
+      $('#home_button').click(function(){
+            //cleanup everything
+          $('#body').cleanUp();
+
+          in_home = true;
+          
+          //hide everything that should be hidden first
+          $('.section1').hide();
+          $('.section3').show();
+          $('#sidebar_text').text("In 1916 entire families would typically share a room in a dwelling or a tenement house. teenagers often slept on the mattresses on the floor beside their parents bed. Today we are seeing a housing shortage and homeless crisis in Dublin and around the country. Although things have improved massively for the majority of people, there are still people who are living in poverty in Dublin.");
+          
+           $('#left_half').css({
+                "background-image" : "url('" + images[8].src + "')",
+          });
+      
+          $('#right_half').css({
+                "background-image" : "url('" + images[7].src + "')",
+          });
+      });
+      
+      $('#potato_fact').click(function() {
+        $('#sidebar_text').text("Due to the First World War there was strict rationing in Ireland. Essential items (butter, eggs, meat etc.) were becoming very scarce and expensive. Boiled bacon and cabbage was the most common dinner of the time, but it was the grossest parts of the animals that people had to eat, such as pigs ears and cheeks. Potatoes were a staple of the diet in Ireland, and people often made cakes and other food items from them.");
+      });
+   
+	$('#dwelling_fact').click(function() { 
+        $('#sidebar_text').text("There were 51,451 one room dwellings in Ireland, and nearly half were home to three or more people, sometimes many more. These dwellings were either mud huts, or equally crude one room, one window dwellings built from rubble. In Dublin 36% of all family homes were just one room, and 23% of all Dubliners were crammed into single room tenement accommodation.");
+      });
+	  
+	  $('#food_fact').click(function() { 
+        $('#sidebar_text').text("Nowadays in Ireland there is an abundance of food available and food is neither scarce nor expensive. There has never been a time in Irish history with such a wide variety and large quantity of food available as there is now. Malnutrition and its related health problems are at an all time low in Ireland."); 
+		});
+		
+		$('#homesize_fact').click(function() { 
+        $('#sidebar_text').text("The average Irish home has 2 bathrooms, with at least 1 shower in every house. Things have improved in a massive way in homes since 1916. Nowadays it is normal for teenagers to have their own bed, and most have their own bedroom too."); 
+		});
+      
+      $('.section3').hover(
+            function(){
+                $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+            }, function() {
+            $(this).css({"border-style" : "none"});
         });
       
 
@@ -333,16 +383,16 @@
     font-family: "Arial", sans-serif;
     line-height: 30px;
   }
-
+  
   #ireland_button {
     float: left;
     position: fixed;
     bottom: 50px;
-    left: 10%;
-    width:60px;
-    height: 60px;
+    left: 7%;
+    width:120px;
+    height: 120px;
     border-radius:100%;
-    background-color: red;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/IrelandIconPNG.png");
   }
 
   #school_button {
@@ -399,10 +449,10 @@
     position: fixed;
     bottom: 50px;
     right: 48%;
-    width:60px;
-    height: 60px;
+    width:120px;
+    height: 120px;
     border-radius:100%;
-    background-color: blue;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/HomeIconPNG.png");
   }
 
   /*Entertainment section*/
@@ -421,7 +471,7 @@
     height: 120px;
     border-radius:20%;
     overflow: hidden;
-    background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Video-Game-Controller-Icon-IDV-edit.svg/120px-Video-Game-Controller-Icon-IDV-edit.svg.png");
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/EntIconPNG.png");
   }
 
   #title_ent{
@@ -581,10 +631,47 @@
 #death_fact {
   position: fixed;
   right: 37%;
-  top: 62%;
+  top: 57%;
   width: 20%;
   height: 20%;
   z-index: 5;
+}
+
+#potato_fact {
+    position: fixed;
+    bottom: 8%;
+    right: 38%;
+    width: 16%;
+    height: 25%;
+    z-index: 10;
+}
+
+#dwelling_fact {
+    position: fixed;
+    top: 8%;
+    right: 28%;
+    width: 26%;
+    height: 33%;
+    z-index: 10;
+}
+
+#food_fact {
+    position: fixed;
+    top: 8%;
+    left: 7%;
+    width: 18%;
+    height: 30%;
+    z-index: 10;
+}
+
+#homesize_fact {
+  position: fixed;
+  left: 5%;
+  top: 43%;
+  width: 15%;
+  height: 30%;
+  border-radius:100%;
+  z-index: 10;
 }
 
 </style>
@@ -614,6 +701,12 @@
  <div id="life_fact" class = "section1"></div>
  <div id="destroyed_fact" class = "section1"></div>
  <div id="death_fact" class = "section1"></div>
+ 
+ <!-- Home -->
+<div id="potato_fact" class = "section3"></div>
+<div id="dwelling_fact" class = "section3"></div>
+<div id="food_fact" class = "section3"></div>
+<div id="homesize_fact" class = "section3"></div>
 
  <!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
  class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
