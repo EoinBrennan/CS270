@@ -94,6 +94,8 @@
           $('body').cleanUp();
 
           in_school = true;
+
+          $('#sidebar').css({"background-color":"#ff9933","color":"black"});
           
           //hide everything that should be hidden first
           $('.stuff_to_hide').hide();
@@ -166,6 +168,8 @@
 
             in_ireland = true;
 
+            $('#sidebar').css({"background-color":"#33ccff","color":"black"});
+
           //hide everything that should be hidden first
           $('.stuff_to_hide').hide();
           $('.info_btn').hide();
@@ -213,6 +217,8 @@
 
             in_home = true;
 
+            $('#sidebar').css({"background-color":"#66ff66","color":"black"});
+
           //hide everything that should be hidden first
           $('.section1').hide();
           $('.section3').show();
@@ -259,6 +265,9 @@
 
         $('#body').cleanUp();
         $('.section1').hide();
+
+        $('#sidebar').css({"background-color":"#da3f3f","color":"black"});
+
         $('#sidebar_text').text("In rural areas, entertainment was limited to the home and GAA club. In towns and cities, there was a greater variety of activites. Daytrips to the beach were popular and of course soccer, rugby and GAA were widespread. Theatre and Music Halls were widespread.");
 
 
@@ -468,6 +477,7 @@
     right: 22%;
     background-size: 100% 100%;
     background-repeat : no-repeat;
+    border-left: thick solid #000;
   }
 
   #sidebar {
