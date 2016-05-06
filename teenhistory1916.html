@@ -33,7 +33,6 @@
       });
 
       $('.info_btn').hide();
-      $('#title_ent').hide();
       $('.stuff_to_hide').hide();
       $('#potato_fact').hide();
       $('#homesize_fact').hide();
@@ -260,10 +259,8 @@
 
         $('#body').cleanUp();
         $('.section1').hide();
-        $('#sidebar_text').text("Entertainment stuff");
+        $('#sidebar_text').text("In rural areas, entertainment was limited to the home and GAA club. In towns and cities, there was a greater variety of activites. Daytrips to the beach were popular and of course soccer, rugby and GAA were widespread. Theatre and Music Halls were widespread.");
 
-          //Entertainment title
-          $('#title_ent').show();
 
           /////////////Film section/////////////
           $('#film_button').show();
@@ -371,7 +368,7 @@
 
   /*borders*/
   #top, #bottom, #left, #right {
-    background: #6666ff;
+    background: #33000f;
     position: fixed;
     z-index:1000;
   }
@@ -398,7 +395,7 @@
 
   .ui-widget-content {
     background: #F9F9F9;
-    border: 1px solid #6666ff;
+    border: 1px solid #4d0017;
     color: #222222;
   }
 
@@ -419,7 +416,7 @@
   }
 
   .ui-widget-header {
-    background: #6666ff;
+    background: #4d0017;
     border: 0;
     color: #fff;
     font-weight: normal;
@@ -478,31 +475,9 @@
     background-color: #80002a;
     padding: 15px;
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-family: "Arial", sans-serif;
     line-height: 30px;
-  }
-  
-  #ireland_button {
-    float: left;
-    position: fixed;
-    bottom: 50px;
-    left: 7%;
-    width:120px;
-    height: 120px;
-    border-radius:100%;
-    background:url("http://i482.photobucket.com/albums/rr189/celt88/IrelandIconPNG.png");
-  }
-
-  #school_button {
-    float: left;
-    position: fixed;
-    bottom: 50px;
-    left: 24%;
-    width:120px;
-    height: 120px;
-    border-radius:100%;
-    background:url("http://i482.photobucket.com/albums/rr189/celt88/SchoolIconPNG.png");
   }
 
   #no_irish_btn {
@@ -554,13 +529,81 @@
     background:url("http://i482.photobucket.com/albums/rr189/celt88/HomeIconPNG.png");
   }
 
+  #home_text{
+    float: right;
+    position: fixed;
+    bottom: 10px;
+    right: 48%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #66ff66;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
+    #ireland_button {
+    float: left;
+    position: fixed;
+    bottom: 50px;
+    left: 7%;
+    width:120px;
+    height: 120px;
+    border-radius:100%;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/IrelandIconPNG.png");
+  }
+
+  #ireland_text {
+    float: left;
+    position: fixed;
+    bottom: 10px;
+    left: 6.5%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #33ccff;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
+  #school_button {
+    float: left;
+    position: fixed;
+    bottom: 50px;
+    left: 24%;
+    width:120px;
+    height: 120px;
+    border-radius:100%;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/SchoolIconPNG.png");
+  }
+
+  #school_text {
+    float: left;
+    position: fixed;
+    bottom: 10px;
+    left: 24%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ff9933;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
   /*Entertainment section*/
 
-  /*color scheme:
-  dark colour: #1D0000
-  light red:AA3939
-  offwhite: FAD8D6;
-  */
 
   #entertainment_button {
     float: right;
@@ -574,44 +617,45 @@
     background:url("http://i482.photobucket.com/albums/rr189/celt88/EntIconPNG.png");
   }
 
-  #title_ent{
-    width: 300px;
-    height: 55px;
-    top: 45%;
-    float: left;
-    left: 27%;
+  #ent_text {
+    float: right;
     position: fixed;
-    z-index: 1;
-    font-size: 50px;
-    background-color: #AA3939;
+    bottom: 10px;
+    right: 28%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #da3f3f;
     color: #1D0000; 
     text-align: center;
     border-radius: 10px;
     border-style: inset;
     border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
   }
 
   #film_button{
-    width: 200px;
-    height: 40px;
-    top: 23%;
-    left: 15%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    bottom: 25%;
+    right: 25%;
     position: fixed;
     z-index: 1000;
-    font-size: 35px;
-    background-color: #275E6D;
+    font-size: 15px;
+    background-color: #da3f3f;
     color: #021013; 
     border-color: #AF763B;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 50px;
     border-style: inset;
   }
 
   #film_1916{
     width: 8%;
     height: 30px;
-    top: 15%;
-    left: 10%;
+    top: 5%;
+    left: 15%;
     position: fixed;
     z-index: 1000;
     font-size: 25px;
@@ -626,8 +670,8 @@
   #film_today{
     width: 8%;
     height: 30px;
-    top: 15%;
-    left: 27%;
+    top: 5%;
+    left: 55%;
     position: fixed;
     z-index: 1000;
     font-size: 25px;
@@ -641,30 +685,31 @@
 
   #chaplin_link{
    position: absolute;
-   top: 300px;
-   left: 20px;
+   top: 15%;
+   left: 5%;
    z-index: 500;
  }
 
  #starwars_link{
   position: absolute;
-  top: 300px;
-  left: 320px;
+  top: 15%;
+  left: 42%;
   z-index: 500;
 }
 
 #games_button{
-  width: 200px;
-  height: 40px;
-  top: 23%;
-  left: 45%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  bottom: 25%;
+  right: 35%;
   position: fixed;
   z-index: 1005;
-  font-size: 35px;
-  background-color: #275E6D;
+  font-size: 15px;
+  background-color: #da3f3f;
   color: #021013; 
   text-align: center;
-  border-radius: 10px;
+  border-radius: 50px;
   border-style: inset;
   border-color: #AF763B;
 }
@@ -672,8 +717,8 @@
 #games_1916{
   width: 8%;
   height: 30px;
-  top: 15%;
-  left: 40%;
+  top: 5%;
+  left: 15%;
   position: fixed;
   z-index: 1000;
   font-size: 25px;
@@ -688,8 +733,8 @@
 #games_today{
   width: 8%;
   height: 30px;
-  top: 15%;
-  left: 57%;
+  top: 5%;
+  left: 55%;
   position: fixed;
   z-index: 1000;
   font-size: 25px;
@@ -789,7 +834,6 @@
   <div id="myDialog1">
     To use your history app, slide your mouse over each photo. When a white circle or box appears, click it and see what it says in the sidebar. There are four sections: country, school, home and entertainment. 
   </div>
-  <div id = "title_ent" class="stuff_to_hide">Entertainment</div>
 
   <!--Film section-->
   <div id = "film_button" class="stuff_to_hide">Film</div>
@@ -831,16 +875,16 @@
 </div>
 
 <!--main screen-->
-<div id="ireland_button">
-</div>
+<div id="ireland_button"></div>
+<div id="ireland_text">Ireland</div>
 
-<div id="home_button">
-</div>
+<div id="home_button"></div>
+<div id="home_text">Home</div>
 
-<div id="school_button">
-</div>
+<div id="school_button"></div>
+<div id="school_text">School</div>
 
-<div id="entertainment_button">
-</div>
+<div id="entertainment_button"></div>
+<div id="ent_text">Entertainment</div>
 </body>
 </html>
