@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+  <script src="http://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+  <script>
+    var images = new Array();
+    var in_school = false;
+    var in_ents = false;
+
+    preload = function() {
+      for (i = 0; i < preload.arguments.length; i++) {
+        images[i] = new Image()
+        images[i].src = preload.arguments[i]
+      }
+    }
+
+    $.fn.cleanUp = function() {
+      in_school = false;
+      in_ents = false;
+
+      $('.info_btn').hide();
+
+      $('#left_half').css({
+        "opacity" : '1',
+      });
+      
+      $('#right_half').css({
+        "opacity" : '1',
+      });
+
+      $('.info_btn').hide();
+      $('.stuff_to_hide').hide();
+      $('#potato_fact').hide();
+      $('#homesize_fact').hide();
+      $('#food_fact').hide();
+      $('#dwelling_fact').hide();
+      $('#drone_link').hide();
+
+    };
+
+    var isMuted = true;
+
+    $(document).ready(function() {
+
+      //*
+
+      //mute button
+      $('#muteButton').click(function(){
+        //pause
+        if(!isMuted){
+        $('#musicLink').attr('src', $('iframe').attr('src'));
+        isMuted = true;
+        return false;
+      }else{
+        //play
+        $('#musicLink').attr('src','https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/62576046&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true');
+        isMuted=false;
+        return false;
+      }
+
+      });
+//*/
+      
+
+        // Set up functions
+        preload("http://i482.photobucket.com/albums/rr189/celt88/spire2016.jpg",
+          "http://i482.photobucket.com/albums/rr189/celt88/1916ruins.jpg",
+          "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
+          "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
+          "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
+          //chaplin (5)
+          "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
+          //star wars (6)
+          "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png",
+          "http://i482.photobucket.com/albums/rr189/celt88/irsh%20kitchen1900.jpg",
+          "http://photos3.zillowstatic.com/i_g/ISlutt5z36zuwk1000000000.jpg",
+          //gaa 1900 (9)
+          "http://www.worldhistory.biz/uploads/posts/2015-08/120q-70.jpg",
+          //Entertainment (10)
+          "https://www.bigspeak.com/wp-content/uploads/2015/06/shutterstock_126022781_1.jpg",
+          //beach (11)
+          "https://upload.wikimedia.org/wikipedia/commons/5/58/StateLibQld_1_113212_Scene_of_a_family_group_on_a_beach,_1900-1910.jpg",
+          //viedo games (12)
+          "https://cdn.psychologytoday.com/sites/default/files/field_blog_entry_images/controller.jpg");
+
+        $('#left_half').css({
+          "background-image" : "url('" + images[0].src + "')",
+        });
+
+        $('#right_half').css({
+          "background-image" : "url('" + images[1].src + "')",
+        });
+
+
+      //cleanup everything 
+      $('body').cleanUp();
+      $('.section3').hide();
+
+    //Set up the dialog box
+    $("#myDialog1").dialog({
+      width: 1000,
+      height: 550,    
+      autoOpen: true,
+      modal: true,
+      title: "Welcome",
+      open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
+      buttons: {
+        'OK' : function() {
+          $(this).dialog('close');
+        },
+
+      }
+    });
+
+    $("#myDialog1").dialog('open');
+
+      // School Section
+      
+      $('#school_button').click(function() {
+          //cleanup everything
+          $('body').cleanUp();
+
+          in_school = true;
+
+          $('#sidebar').css({"background-color":"#ff9933","color":"black"});
+          
+          //hide everything that should be hidden first
+          $('.stuff_to_hide').hide();
+          $('.section1').hide();
+          $('.section3').hide();
+
+          $('#no_irish_btn').show();
+          $('#teachers_btn').show();
+          $('#sidebar_text').text("Life was hard for young people in the past. School was no different. Though, even then... That 1916 classroom is VERY empty.");
+          
+          $('#left_half').css({
+            "background-image" : "url('" + images[2].src + "')",
+          });
+
+          $('#right_half').css({
+            "background-image" : "url('" + images[3].src + "')",
+          });
+        });
+
+      $('#right_half').mouseenter(function() {
+        if(in_school) {
+          $('#sidebar_text').text("Although the national schools provided free primary education in Ireland from the 1830s, the school leaving age was 14, and the teenagers of farmers could leave school from 12. So most teenagers simply didn't go to school. Instead most worked in factories or on farms, gruelling low paid work.");
+          $('#right_half').css({
+            "background-image" : "url('" + images[4].src + "')",
+          });
+          $('#conditions_btn').show();
+          $('#marriage_btn').show();
+        }
+      }); 
+      $('#right_half').mouseleave(function() {   
+        if(in_school) {
+          $('#right_half').css({
+            "background-image" : "url('" + images[3].src + "')",
+          });
+          $('#conditions_btn').hide();
+          $('#marriage_btn').hide();
+        }
+      });
+
+      $('#conditions_btn').click(function(){
+        $('#sidebar_text').text("At the turn of the century it took an annual income of at least 125 pounds to live comfortably but the average worker made between 80 and 100 pounds per year. During economic recession many workers lost their jobs or faced sharp pay cuts. \n\n Work was often monotonous because workers performed one task over and over. Working hours were long averaging at least ten hours a day and six days a week for most workers.");
+      });
+
+      $('#marriage_btn').click(function(){
+        $('#sidebar_text').text("Legally speaking people could get married as young as 12 or 13 (mostly girls) in the 1900s, but this was incredibly uncommon. Most people didn't get married until they were in their 20s and had an established income or line of work. \n\n However, people travelled and moved far less. Particularly in agricultural communities people would marry people they had known for most of their lives.");
+      });
+
+      $('#no_irish_btn').click(function(){
+        $('#sidebar_text').text("Irish wasn't taught in most schools. Unless you were from a Gaeltacht area, Irish was an oppressed and largely forgotten language. If you think people are bad at speaking Irish now, it was even worse under English rule. Irish wasn't taught in schools until we earned our freedom in 1922. Hopefully that helps make a bit more palatable.");
+      });
+
+      $('#teachers_btn').click(function(){
+        $('#sidebar_text').text("Fewer than half of teachers in schools had any training at all. Most that did have any training were years out of date. Even worse, teacher's salaries were decided by an inspector, so they would frequently brutally beat students who failed tests. This was... less than ideal. The teachers were frequently just people from the village who had done well when in school themselves.");
+      });
+
+      $('.info_btn').hover(
+        function(){
+          $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+        }, function() {
+          $(this).css({"border-style" : "none"});
+        });
+
+
+      // Ireland Section 
+      
+      $('#ireland_button').click(function(){
+            //cleanup everything
+            $('#body').cleanUp();
+            $('.section3').hide();
+
+            in_ireland = true;
+
+            $('#sidebar').css({"background-color":"#33ccff","color":"black"});
+
+          //hide everything that should be hidden first
+          $('.stuff_to_hide').hide();
+          $('.info_btn').hide();
+
+          $('.section1').show();
+          $('#sidebar_text').text("Ireland in 1916 was one of the poorest countries in Europe. Today Ireland is a multicultural modern European country. Ireland in 2016 is one of the most developed countries in the world. In 1916, Ireland was a very poor country with very few industries and little wealth. \n\n Revolution and war were common place in Ireland in 1916. The most famous people in Ireland in 1916 were the politicians/leaders such as Padraig Pearse.");
+          
+          $('#left_half').css({
+            "background-image" : "url('" + images[0].src + "')",
+          });
+
+          $('#right_half').css({
+            "background-image" : "url('" + images[1].src + "')",
+          });
+        });
+      
+      $('#spire_fact').click(function() {
+        $('#sidebar_text').text("In  2016, approximately 66% of Irish people live in urban areas. Crime is a major problem in certains parts of cities in Ireland. In 2016, Dublin is the centre of political, social, ecomonic and cultural life in Ireland. The total population of Dublin city is 527,612 . \n\n Irelands second biggest city is Cork with a population of 119,230. Irelands biggest cities today include Dublin, Cork, Belfast, Galway and Limerick.");
+      });
+      
+      $('#life_fact').click(function() {
+        $('#sidebar_text').text("Life expectancy in Ireland 2016 is 80 years of age. In 2011 census, there were 1,807,360 people at work in Ireland. Some of the most famous companies in the world today are located in Ireland e.g Apple, Google, Facebook, Twitter, Intel. \n\n In 2011 census, nearly 4.9% of workers were involved in agriculture. In 2011 census, the number of farms with over one hectare (equal to 2.5 acres) was 139,860.");
+      });
+      
+      $('#death_fact').click(function() {
+        $('#sidebar_text').text("There was a total of five hundred people killed during the fighting. Three hundred of the dead were civilians who were not involved in the fighting. There were a total of 2,500 wounded, of which 2,000 were ordinary civilians. Many teenagers took part, either as messenger-boys or in the actual fighting in Easter week 1916. In total ,40 teenagers got caught up in the crossfire and were killed on the streets of  Dublin in 1916.");
+      });
+      
+      $('#destroyed_fact').click(function() {
+        $('#sidebar_text').text("Guns and fires destroyed much of the surrounding city and the GPO was in absolute ruins. Dublin city centre was almost completely destroyed after the 1916 Rising.");
+      });
+      
+      $('.section1').hover(
+        function(){
+          $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+        }, function() {
+          $(this).css({"border-style" : "none"});
+        });
+
+		// Home Section 
+
+    $('#home_button').click(function(){
+            //cleanup everything
+            $('#body').cleanUp();
+
+            in_home = true;
+
+            $('#sidebar').css({"background-color":"#66ff66","color":"black"});
+
+          //hide everything that should be hidden first
+          $('.section1').hide();
+          $('.section3').show();
+          $('#sidebar_text').text("In 1916 entire families would typically share a room in a dwelling or a tenement house. teenagers often slept on the mattresses on the floor beside their parents bed. \n\n Today we are seeing a housing shortage and homeless crisis in Dublin and around the country. Although things have improved massively for the majority of people, there are still people who are living in poverty in Dublin.");
+          
+          $('#left_half').css({
+            "background-image" : "url('" + images[8].src + "')",
+          });
+
+          $('#right_half').css({
+            "background-image" : "url('" + images[7].src + "')",
+          });
+        });
+
+    $('#potato_fact').click(function() {
+      $('#sidebar_text').text("Due to the First World War there was strict rationing in Ireland. Essential items (butter, eggs, meat etc.) were becoming very scarce and expensive. Boiled bacon and cabbage was the most common dinner of the time, but it was the grossest parts of the animals that people had to eat, such as pigs ears and cheeks. Potatoes were a staple of the diet in Ireland, and people often made cakes and other food items from them.");
+    });
+
+    $('#dwelling_fact').click(function() { 
+      $('#sidebar_text').text("There were 51,451 one room dwellings in Ireland, and nearly half were home to three or more people, sometimes many more. These dwellings were either mud huts, or equally crude one room, one window dwellings built from rubble. In Dublin 36% of all family homes were just one room, and 23% of all Dubliners were crammed into single room tenement accommodation.");
+    });
+
+    $('#food_fact').click(function() { 
+      $('#sidebar_text').text("Nowadays in Ireland there is an abundance of food available and food is neither scarce nor expensive. There has never been a time in Irish history with such a wide variety and large quantity of food available as there is now. Malnutrition and its related health problems are at an all time low in Ireland."); 
+    });
+
+    $('#homesize_fact').click(function() { 
+      $('#sidebar_text').text("The average Irish home has 2 bathrooms, with at least 1 shower in every house. Things have improved in a massive way in homes since 1916. Nowadays it is normal for teenagers to have their own bed, and most have their own bedroom too."); 
+    });
+
+    $('.section3').hover(
+      function(){
+        $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+      }, function() {
+        $(this).css({"border-style" : "none"});
+      });
+
+
+
+      ////////Entertainment section////////
+      
+      $('#entertainment_button').click(function() {
+        in_ents = true;
+
+        $('#body').cleanUp();
+        $('.section1').hide();
+
+        //Left image
+        $('#left_half').css({
+          "background-image" : "url('" + images[10].src + "')",
+          "opacity" : '1',
+        });
+
+        //right image
+        $('#right_half').css({
+          "background-image" : "url('" + images[11].src + "')",
+          "opacity" : '1',
+        });
+
+        $('#sidebar').css({"background-color":"#da3f3f","color":"white"});
+
+        $('#sidebar_text').text("In rural areas, entertainment was limited to the home and GAA club. In towns and cities, there was a greater variety of activites. Daytrips to the beach were popular and of course soccer, rugby and GAA were widespread. Theatre and Music Halls were widespread. \n \n Today, the entertainment industry is booming. We can travel cheaply, purchase quickly and learn anything we need to know with the click of a button. The young generation particularly enjoy going to clubs and cinemas, playing video games and sports, and playing music.");
+
+
+          /////////////Film section/////////////
+          $('#film_button').show();
+          $('#film_button').click(function(){
+
+    			 //hide the game section
+          $('#games_1916').hide();
+          $('#games_today').hide();
+          $('#games_today_div').hide();
+          $('#games_today_div2').hide();
+          $('#games_today_div3').hide();
+          $('#games_1916_div').hide();
+          $('#games_1916_div2').hide();
+
+          //show stuff
+          $('#film_1916').show();
+          $('#film_today').show();
+          $('#click_me').show();
+          $('#starwars_link').show();
+          $('#chaplin_link').show();
+
+          //right image
+          $('#right_half').css({
+            "background-image" : "url('" + images[5].src + "')",
+            "opacity" : '0.5',
+          });
+
+            //left image
+            $('#left_half').css({
+              "background-image" : "url('" + images[6].src + "')",
+              "opacity" : '0.5',
+            });
+
+          });
+
+          var film_1916_text = "Film was just beginning to come into its own in the early 1900s. \nCharlie Chaplin was a famous comedy actor and director of the time. \nYou might know him by his character, the 'Little Tramp'.\n\n Even though movies were not of the same high quality as today, they were still very expensive. \nChaplin's 'Modern Times' cost around 1m pounds. \nThis is the same as 30m euro today.";
+
+          $('#film_1916').click(function(){
+            $('#sidebar_text').text( film_1916_text);
+          });            
+
+          $('#film_today').click(function(){
+
+            $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. \nSome of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. \nThese films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. \nIn 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
+
+          });  
+
+
+          //////Games section/////////
+          $('#games_button').show();
+          $('#games_button').click(function(){
+
+            //hide stuff
+            $('#film_1916').hide();
+            $('#film_today').hide();
+            $('#chaplin_link').hide();
+            $('#starwars_link').hide();
+
+            //1916 button
+            $('#games_1916').show();
+            $('#games_today').show();
+
+            //right image
+            $('#right_half').css({
+              "background-image" : "url('" + images[9].src + "')",
+              "opacity" : '1.0',
+            });
+
+            //left image
+            $('#left_half').css({
+              "background-image" : "url('" + images[12].src + "')",
+              "opacity" : '1.0',
+            });
+
+            $('#games_1916_div').show();
+            $('#games_1916_div2').show();
+            $('#games_today_div').show();
+            $('#games_today_div2').show();
+            $('#games_today_div3').show();
+          });
+
+          $('#games_1916_div').click(function(){
+            $('#sidebar_text').text("Sport was just as popular 100 years ago as it is today. GAA and rugby were widely played as was one of the main forms of socialising amongst the younger generation. It was as much about coming together as it was about competing. Sport was played by all classes in all areas and was remarkably diverse.");
+          });
+
+          $('#games_1916_div2').click(function(){
+            $('#sidebar_text').text("In 1920 on a day we now call Bloody Sunday, a football match in Croke Park was attacked by British forces. Sadly, 14 people were killed and 65 were injured.");
+          });
+
+
+
+          $('#games_today_div').click(function(){
+            $('#sidebar_text').text("Today, sport is a passionate hobby of most if not all young people. Ireland in particular have contributed to the international sports scene. Hurling is known as the fastest field sport in the world. The fastest shot recorded to date was hit by TJ Reid of Kilkenny against Limerick in the 2014 GAA All Ireland Senior Hurling Championship semi-final, when a remarkable speed of 181.1 kph was measured.");
+
+            $('#drone_link').hide();
+          })
+
+          $('#games_today_div2').click(function(){
+            $('#sidebar_text').text("As well as hurling, Gaelic football is widely played among the youth. It is difficult to find a person in Ireland who hasn't at some point played on a football team, whether it be their school team or local club. International rules came about in 1967. It facilitates both Australian rules football and Gaelic football. The game attracts large crowds and passionate players.");
+
+            $('#drone_link').hide();
+          })
+
+          $('#games_today_div3').click(function(){
+            $('#sidebar_text').text("We now have access to a vast quantity of digital media and gaming. New video games, consoles, phones and other technologies come out everyday. We even have a new sport called first person view (FPV) drone racing! (Check it out!)");
+
+            $('#drone_link').show();
+          })
+
+          $('.section4').hover(
+            function(){
+              $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+            }, function() {
+              $(this).css({"border-style" : "none"});
+            }); 
+        });
+});
+</script>
+
+<style>
+  html, body {
+    height: 100%;
+  }
+
+  p{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #666666;
+    color: white;
+    border-radius: 15px;
+  }
+
+  /*borders*/
+  #top, #bottom, #left, #right {
+    background: #33000f;
+    position: fixed;
+    z-index:1000;
+  }
+  #left, #right {
+    top: 0; bottom: 0;
+    width: 8px;
+  }
+  #left { left: 0; }
+  #right { right: 0; }
+
+  #top, #bottom {
+    left: 0; right: 0;
+    height: 8px;
+  }
+  #top { top: 0; }
+  #bottom { bottom: 0; }
+
+  /*Dialog box*/
+  .ui-widget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  .ui-widget-content {
+    background: #ffe6ee;
+    border: 1px solid #4d0017;
+    color: #222222;
+    line-height: 40px;
+
+  }
+
+  .ui-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+
+  }
+
+  .ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 0 !important;
+
+
+  }
+
+  .ui-widget-header {
+    background: #4d0017;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+    height: 70px;
+    line-height: 70px;
+  }
+
+  .ui-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-family: Lucida;
+    font-size: 1.5em;
+    font-weight: bold;
+
+  }
+  .ui-widget-overlay {
+    background: #e6e6e6;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .ui-front {
+    z-index: 3000;
+  }
+
+  #mainPage{
+    height:100%;
+    width:100%;
+    z-index:50;
+    background-color: red;
+  }
+
+  #left_half {
+    width: 40%;
+    height: 100%;
+    float: left;
+    position: fixed;
+    background-size: 100% 100%;
+    background-repeat : no-repeat;
+  }
+
+
+  #right_half {
+    width: 40%;
+    height: 100%;
+    position: fixed;
+    float: right;
+    right: 22%;
+    background-size: 100% 100%;
+    background-repeat : no-repeat;
+    border-left: thick solid #000;
+  }
+
+  #sidebar {
+    width: 20%;
+    height: 100%;
+    float: right;
+    right: 8px;
+    position: fixed;
+    background-color: #80002a;
+    padding: 15px;
+    color: white;
+    font-size: 18px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    white-space: pre-wrap;
+  }
+
+  #no_irish_btn {
+    float: right;
+    position: fixed;
+    top: 20%;
+    left: 15%;
+    width: 20%;
+    height: 15%;
+    border-radius: 100%;
+  }
+
+  #teachers_btn {
+    float: right;
+    position: fixed;
+    top: 40%;
+    left: 10%;
+    width:20%;
+    height: 50%;
+  }
+
+  #conditions_btn {
+    float: left;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 25%;
+    height: 30%;
+  }
+
+  #marriage_btn {
+    float: left;
+    position: fixed;
+    bottom: 200px;
+    left: 40%;
+    width:100px;
+    height: 100px;
+    border-radius:100%;
+  }
+
+  #home_button {
+    float: right;
+    position: fixed;
+    bottom: 50px;
+    right: 48%;
+    width:120px;
+    height: 120px;
+    border-radius:100%;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/HomeIconPNG.png");
+  }
+
+  #home_text{
+    float: right;
+    position: fixed;
+    bottom: 10px;
+    right: 48%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #66ff66;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
+  #ireland_button {
+    float: left;
+    position: fixed;
+    bottom: 50px;
+    left: 7%;
+    width:120px;
+    height: 120px;
+    border-radius:100%;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/IrelandIconPNG.png");
+  }
+
+  #ireland_text {
+    float: left;
+    position: fixed;
+    bottom: 10px;
+    left: 6.5%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #33ccff;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
+  #school_button {
+    float: left;
+    position: fixed;
+    bottom: 50px;
+    left: 24%;
+    width:120px;
+    height: 120px;
+    border-radius:100%;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/SchoolIconPNG.png");
+  }
+
+  #school_text {
+    float: left;
+    position: fixed;
+    bottom: 10px;
+    left: 24%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ff9933;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
+  /*Entertainment section*/
+
+
+  #entertainment_button {
+    float: right;
+    position: fixed;
+    bottom: 50px;
+    right: 28%;
+    width:120px;
+    height: 120px;
+    border-radius:20%;
+    overflow: hidden;
+    background:url("http://i482.photobucket.com/albums/rr189/celt88/EntIconPNG.png");
+  }
+
+  #ent_text {
+    float: right;
+    position: fixed;
+    bottom: 10px;
+    right: 28%;
+    width:120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #da3f3f;
+    color: #1D0000; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #FAD8D6;
+    font-family: Verdana,Arial,sans-serif;
+  }
+
+  #film_button{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    bottom: 25%;
+    right: 25%;
+    position: fixed;
+    z-index: 1000;
+    font-size: 15px;
+    background-color: #da3f3f;
+    color: #021013; 
+    border-color: #AF763B;
+    text-align: center;
+    border-radius: 50px;
+    border-style: inset;
+  }
+
+  #film_1916{
+    width: 200px;
+    height: 30px;
+    top: 5%;
+    left: 50%;
+    position: fixed;
+    z-index: 1000;
+    font-size: 25px;
+    background-color: #FFDBB7;
+    color: #8E5A24; 
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #AF763B;
+  }
+
+  #film_today{
+    width: 200px;
+    height: 30px;
+    top: 5%;
+    left: 12%;
+    position: fixed;
+    z-index: 1000;
+    font-size: 25px;
+    background-color: #FFDBB7;
+    color: #8E5A24;
+    border-color: #AF763B;
+    text-align: center;
+    border-radius: 10px;
+    border-style: inset;
+  }
+
+  #chaplin_link{
+   position: absolute;
+   top: 15%;
+   left: 42%;
+   z-index: 500;
+ }
+
+ #starwars_link{
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  z-index: 500;
+}
+
+#drone_link{
+  position: absolute;
+   top: 15%;
+   left: 42%;
+   z-index: 5000;
+}
+
+#games_button{
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  bottom: 25%;
+  right: 35%;
+  position: fixed;
+  z-index: 1005;
+  font-size: 15px;
+  background-color: #da3f3f;
+  color: #021013; 
+  text-align: center;
+  border-radius: 50px;
+  border-style: inset;
+  border-color: #AF763B;
+}
+
+#games_1916{
+  width: 200px;
+  height: 30px;
+  top: 5%;
+  left: 50%;
+  position: fixed;
+  z-index: 1000;
+  font-size: 25px;
+  background-color: #FFDBB7;
+  color: #8E5A24;
+  border-color: #AF763B; 
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+}
+
+#games_today{
+  width: 200px;
+  height: 30px;
+  top: 5%;
+  left: 12%;
+  position: fixed;
+  z-index: 1000;
+  font-size: 25px;
+  background-color: #FFDBB7;
+  color: #8E5A24;
+  border-color: #AF763B;
+  text-align: center;
+  border-radius: 10px;
+  border-style: inset;
+}
+
+#games_1916_div{
+  position: fixed;
+  left: 60%;
+  top: 28%;
+  width: 100px;
+  height: 250px;
+  z-index: 2000;
+}
+
+#games_1916_div2{
+  position: fixed;
+  left: 45%;
+  top: 15%;
+  width: 200px;
+  height: 150px;
+  border-radius: 200px;
+  z-index: 2000;
+}
+
+#games_today_div{
+  position: fixed;
+  top: 27%;
+  left: 18%;
+  width: 200px;
+  height: 150px;
+  z-index: 10;
+}
+
+#games_today_div2{
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50px;
+  z-index: 10;
+}
+
+#games_today_div3{
+  position: fixed;
+  top: 40%;
+  left: 5%;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  z-index: 10;
+}
+
+#spire_fact {
+  position: fixed;
+  left: 23%;
+  width: 6%;
+  height: 75%;
+  z-index: 10;
+}
+
+#life_fact {
+  position: fixed;
+  left: 5%;
+  top: 23%;
+  width: 15%;
+  height: 30%;
+  border-radius:100%;
+  z-index: 10;
+}
+
+#destroyed_fact {
+  position: fixed;
+  right: 30%;
+  top: 15%;
+  width: 20%;
+  height: 40%;
+  z-index: 10;
+}
+
+#death_fact {
+  position: fixed;
+  right: 37%;
+  top: 57%;
+  width: 20%;
+  height: 20%;
+  z-index: 5;
+}
+
+#potato_fact {
+  position: fixed;
+  bottom: 8%;
+  right: 38%;
+  width: 10%;
+  height: 25%;
+  z-index: 10;
+}
+
+#dwelling_fact {
+  position: fixed;
+  top: 8%;
+  right: 28%;
+  width: 26%;
+  height: 33%;
+  z-index: 10;
+}
+
+#food_fact {
+  position: fixed;
+  top: 8%;
+  left: 7%;
+  width: 18%;
+  height: 30%;
+  z-index: 10;
+}
+
+#homesize_fact {
+  position: fixed;
+  left: 5%;
+  top: 43%;
+  width: 15%;
+  height: 30%;
+  border-radius:100%;
+  z-index: 10;
+}
+
+#click_me{
+  font-size: 10px;
+  z-index: 100;
+  float: right;
+  padding-top: 8px;
+  padding-right: 10px;
+}
+
+#muteButton{
+  background:url("http://simpleicon.com/wp-content/uploads/volume-mute.png");
+  position: fixed;
+  top:10px;
+  right: -70px;
+  z-index: 10000;
+}
+
+</style>
+</head>
+
+<body id="body">
+
+  <!--Body border-->
+  <div id="left"></div>
+  <div id="right"></div>
+  <div id="top"></div>
+  <div id="bottom"></div>
+
+  <!--Entertainment section-->
+  <div id="myDialog1">
+    <p>To use your history app, slide your mouse over each photo. When a white circle or box appears, click to see what it says in the sidebar.</p> 
+    <p>There are four sections: Ireland, school, home and entertainment. On the left of the page you can click and see what there is to learn about the Ireland of today. On the right you will discover what there is to know about Ireland 100 years ago. </p>
+    <p>Have fun!!!</p>
+  </div>
+
+  <!--Film section-->
+  <div id = "film_button" class="stuff_to_hide">Film</div>
+  <div class="film_section">
+   <div id= "film_1916" class = "stuff_to_hide">Film 1916<div id="click_me">click me!</div></div>
+   <div id= "film_today" class = "stuff_to_hide">Film Today<div id="click_me">click me!</div></div>
+   <div id="chaplin_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/F-Y45rcGX3s?autoplay=0"></iframe></div>
+   <div id="starwars_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sGbxmsDFVnE?autoplay=0"></iframe></div>
+ </div>
+ <!--Games section-->
+ <div id="games_button" class = "stuff_to_hide">Games</div>
+ <div id= "games_1916" class = "stuff_to_hide">Games 1916</div>
+ <div id= "games_today" class = "stuff_to_hide">Games Today</div>
+ <div id="games_1916_div" class="stuff_to_hide section4"></div>
+ <div id="games_1916_div2" class="stuff_to_hide section4"></div>
+ <div id="games_today_div" class="stuff_to_hide section4"></div>
+ <div id="games_today_div2" class="stuff_to_hide section4"></div>
+ <div id="games_today_div3" class="stuff_to_hide section4"></div>
+ <div id="drone_link" class="stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sFHRcW6qnvo?autoplay=0"></iframe></div>
+
+ <!-- Ireland Section -->
+ <div id="spire_fact" class = "section1"></div>
+ <div id="life_fact" class = "section1"></div>
+ <div id="destroyed_fact" class = "section1"></div>
+ <div id="death_fact" class = "section1"></div>
+ 
+ <!-- Home -->
+ <div id="potato_fact" class = "section3"></div>
+ <div id="dwelling_fact" class = "section3"></div>
+ <div id="food_fact" class = "section3"></div>
+ <div id="homesize_fact" class = "section3"></div>
+
+ <!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
+ class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
+
+ <!--right half of screen-->
+ <div id="right_half">
+  <div id="conditions_btn" class="info_btn"></div>
+  <div id="marriage_btn" class="info_btn"></div>
+</div>
+
+<!--sidebar-->
+<div id="sidebar">
+  <span id="sidebar_text"></span>
+</div>
+
+<!--main screen-->
+<div id="ireland_button"></div>
+<div id="ireland_text">Ireland</div>
+
+<div id="home_button"></div>
+<div id="home_text">Home</div>
+
+<div id="school_button"></div>
+<div id="school_text">School</div>
+
+<div id="entertainment_button"></div>
+<div id="ent_text">Entertainment</div>
+
+<div id="muteButton"><img src="http://findicons.com/files/icons/2711/free_icons_for_windows8_metro/128/mute.png" alt="Mute" width="20%" height="20%"></div>
+
+<!--Audio link-->
+  <iframe width="100%" height="450" id="musicLink" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/62576046&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+
+</body>
+</html>

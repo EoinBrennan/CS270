@@ -8,8 +8,8 @@
   <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
   <script>
     var images = new Array();
-    var in_school = false;
-    var in_ents = false;
+    var in_school = true;
+    var in_ents = true;
     var in_ireland = true;
     var in_home = true;
 
@@ -49,14 +49,24 @@
 
         // Set up functions
         preload("http://i482.photobucket.com/albums/rr189/celt88/spire2016.jpg",
-          "http://i482.photobucket.com/albums/rr189/celt88/1916ruins.jpg",
-          "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
-          "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg", 
-          "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
-          "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
-          "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png",
-          "http://i482.photobucket.com/albums/rr189/celt88/irsh%20kitchen1900.jpg",
-          "http://photos3.zillowstatic.com/i_g/ISlutt5z36zuwk1000000000.jpg");
+                "http://i482.photobucket.com/albums/rr189/celt88/1916ruins.jpg",
+                "http://i.telegraph.co.uk/multimedia/archive/02251/MathsClassroom_2251382b.jpg",
+                "http://i482.photobucket.com/albums/rr189/celt88/1900s-Nebraska-classroom.jpg",
+                "http://i482.photobucket.com/albums/rr189/celt88/1900s_factory.jpg",
+                //chaplin (5)
+                "https://s-media-cache-ak0.pinimg.com/736x/a2/9c/ea/a29cea140f3039895c4649c800155172.jpg",
+                //star wars (6)
+                "http://img07.deviantart.net/7f90/i/2015/317/b/0/star_wars__the_force_awakens__2015____poster_by_camw1n-d9fw4z5.png",
+                "http://i482.photobucket.com/albums/rr189/celt88/irsh%20kitchen1900.jpg",
+                "http://photos3.zillowstatic.com/i_g/ISlutt5z36zuwk1000000000.jpg",
+                //gaa 1900 (9)
+                "http://www.worldhistory.biz/uploads/posts/2015-08/120q-70.jpg",
+                //Entertainment (10)
+                "https://www.bigspeak.com/wp-content/uploads/2015/06/shutterstock_126022781_1.jpg",
+                //beach (11)
+                "https://upload.wikimedia.org/wikipedia/commons/5/58/StateLibQld_1_113212_Scene_of_a_family_group_on_a_beach,_1900-1910.jpg",
+                //viedo games (12)
+                "https://cdn.psychologytoday.com/sites/default/files/field_blog_entry_images/controller.jpg");
 
         $('#left_half').css({
           "background-image" : "url('" + images[0].src + "')",
@@ -207,6 +217,8 @@
 
             $('#spire_fact').show();
             $('#life_fact').show();
+            $('#death_fact').show();
+            $('#destroy_fact').show();
             $('#sidebar_text').text("Ireland in 1916 was one of the poorest countries in Europe. Today Ireland is a multicultural modern European country. Ireland in 2016 is one of the most developed countries in the world. In 1916, Ireland was a very poor country with very few industries and little wealth. Revolution and war were common place in Ireland in 1916. The most famous people in Ireland in 1916 were the politicians/leaders such as Padraig Pearse..");
 
             $('#left_half').css({
@@ -227,8 +239,7 @@
                 $('#right_half').css({
                     "background-image" : "url('" + images[1].src + "')",
                 });
-                $('#death_fact').show();
-                $('#destroy_fact').show();
+
             }
 
         });
@@ -367,137 +378,175 @@
 /*********************************************************************************************************************
                                         ENTERTAIMENT SECTION
 ***********************************************************************************************************************/
-      
-      $('#entertainment_button').click(function() {
-      // cleanup everything
-      $('#body').cleanUp();
 
-      $('.section1').hide();
-      in_ents = true;
+        $('#entertainment_button').click(function() {
 
+            $('#body').cleanUp();
 
-      $('#sidebar').css({"background-color":"#da3f3f","color":"black"});
+            $('.section1').hide();
+            in_ents = true;
 
-      $('#sidebar_text').text("In rural areas, entertainment was limited to the home and GAA club. In towns and cities, there was a greater variety of activites. Daytrips to the beach were popular and of course soccer, rugby and GAA were widespread. Theatre and Music Halls were widespread.");
+            //Left image
+            $('#left_half').css({
+                "background-image" : "url('" + images[10].src + "')",
+                "opacity" : '1',
+            });
 
+            //right image
+            $('#right_half').css({
+                "background-image" : "url('" + images[11].src + "')",
+                "opacity" : '1',
+            });
 
-      /////////////Film section/////////////
-      $('#film_button').show();
-      $('#film_button').click(function(){
+            $('#sidebar').css({"background-color":"#da3f3f","color":"white"});
 
-      //hide the game section
-      $('#games_1916').hide();
-      $('#games_today').hide();
+            $('#sidebar_text').text("In rural areas, entertainment was limited to the home and GAA club. In towns and cities, there was a greater variety of activites. Daytrips to the beach were popular and of course soccer, rugby and GAA were widespread. Theatre and Music Halls were widespread. \n \n Today, the entertainment industry is booming. We can travel cheaply, purchase quickly and learn anything we need to know with the click of a button. The young generation particularly enjoy going to clubs and cinemas, playing video games and sports, and playing music.");
+            $('#right_half').mouseenter(function() {
+                if(in_ents) {
+                    $(".entPresent").trigger('pause');
+                    $(".entPast").trigger('load');
+                    $(".entPast").trigger('play');
+                }
+            });
+            $('#right_half').mouseleave(function() {
+                if(in_ents) {
+                    $(".entPast").trigger('pause');
 
-      //show stuff
-      $('#film_1916').show();
-      $('#film_today').show();
-      $('#starwars_link').show();
-      $('#chaplin_link').show();
+                }
+            });
+            $('#left_half').mouseenter(function() {
+                if(in_ents) {
+                    $(".entPast").trigger('pause');
+                    $(".entPresent").trigger('load');
+                    $(".entPresent").trigger('play');
 
-      $('#film_1916').click(function(){
+                }
+            });
+            $('#left_half').mouseleave(function() {
+                if(in_ents) {
+                    $(".entPresent").trigger('pause');
+                }
+            });
 
-            console.log("1916 clicked");
-            $('#sidebar_text').text( "Film was just beginning to come into its own in the early 1900s. Charlie Chaplin was a famous comedy actor and director of the time. You might know him by his character, the 'Little Tramp'. Even though movies were not of the same high quality as today, they were still very expensive. Chaplin's 'Modern Times' cost around 1m pounds. This is the same as 30m euro today.");
-      });
+            /////////////Film section/////////////
+            $('#film_button').show();
+            $('#film_button').click(function(){
 
-      $('#film_today').click(function(){
+                //hide the game section
+                $('#games_1916').hide();
+                $('#games_today').hide();
+                $('#games_today_div').hide();
+                $('#games_today_div2').hide();
+                $('#games_today_div3').hide();
+                $('#games_1916_div').hide();
+                $('#games_1916_div2').hide();
 
-      $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. Some of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. These films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. In 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
+                //show stuff
+                $('#film_1916').show();
+                $('#film_today').show();
+                $('#click_me').show();
+                $('#starwars_link').show();
+                $('#chaplin_link').show();
 
-      });
+                //right image
+                $('#right_half').css({
+                    "background-image" : "url('" + images[5].src + "')",
+                    "opacity" : '0.5',
+                });
 
-      });
+                //left image
+                $('#left_half').css({
+                    "background-image" : "url('" + images[6].src + "')",
+                    "opacity" : '0.5',
+                });
 
+            });
 
+            var film_1916_text = "Film was just beginning to come into its own in the early 1900s. \nCharlie Chaplin was a famous comedy actor and director of the time. \nYou might know him by his character, the 'Little Tramp'.\n\n Even though movies were not of the same high quality as today, they were still very expensive. \nChaplin's 'Modern Times' cost around 1m pounds. \nThis is the same as 30m euro today.";
 
-          //Left image
-      $('#left_half').css({
-            "background-image" : "url('" + images[6].src + "')",
-            "opacity" : '0.4',
-      });
+            $('#film_1916').click(function(){
+                $('#sidebar_text').text( film_1916_text);
+            });
 
-        //right image
-      $('#right_half').css({
-            "background-image": "url('" + images[5].src + "')",
-            "opacity": '0.4',
-      });
+            $('#film_today').click(function(){
 
+                $('#sidebar_text').text("In the modern film industry, camera trickery and digital effects are the norm, for example: CGI, greenscreen, 3d camera tracking. \nSome of the most famous films of all time illustrate these techniques such as Lord of the Rings, Star Wars and Avatar. \nThese films are very expensive to make. In fact, the newly released Star Wars: The Force Awakens cost 215m euro. \nIn 1916 this would have been the equivalent of 8m pounds, eight times the cost of Chaplin's movie.");
 
-      //////Games section/////////
-      $('#games_button').show();
-      $('#games_button').click(function() {
-
-
-              //hide stuff
-              $('#film_1916').hide();
-              $('#film_today').hide();
-              $('#chaplin_link').hide();
-              $('#starwars_link').hide();
-
-              //1916 button
-              $('#games_1916').show();
-
-              $('#games_1916').click(function () {
-
-                  console.log("1916 clicked");
-                  $('#sidebar_text').text("Games that people played 100 years ago or so are in a way very different to today's games but not so different in other. For example, sports have not changed very much since then. GAA and rugby was just as popular then compared to today, even moreso in some respects. In 1920 on a day called Bloody Sunday, a football match in Croke Park was attacked by British forces. Sadly, 14 people were killed and 65 were injured.");
-              });
-
-              //today button
-
-              $('#games_today').click(function () {
-
-                  $('#sidebar_text').text("In the Ireland of today, GAA sports and rugby is still very popular as any native Irish man or woman will defend passionately. Some things that have changed are immediately obvious. We now have access to a vast quantity of digital media and gaming. New video games, consoles, phones and other technologies come out everyday. We even have a new sport called first person view (FPV) drone racing! (Check it out!)");
-              });
-
-              $('#games_today').show();
-
-          });
-
-          //Left image
-      $('#left_half').css({
-              "background-image" : "url('" + images[5].src + "')",
-              "opacity" : '0.4',
-      });
-
-          //right image
-      $('#right_half').css({
-            "background-image" : "url('" + images[6].src + "')",
-            "opacity" : '0.4',
-      });
-
-      $('#left_half').mouseenter(function() {
-         if(in_ents) {
-             $(".entPresent").trigger('pause');
-             $(".entPast").trigger('load');
-             $(".entPast").trigger('play');
-
-             }
-      });
-      $('#left_half').mouseleave(function() {
-         if(in_ents) {
-              $(".entPast").trigger('pause');
-
-             }
-      });
-      $('#right_half').mouseenter(function() {
-          if(in_ents) {
-              $(".entPast").trigger('pause');
-              $(".entPresent").trigger('load');
-              $(".entPresent").trigger('play');
-
-          }
-      });
-      $('#right_half').mouseleave(function() {
-          if(in_ents) {
-              $(".entPresent").trigger('pause');
-
-          }
-      });
+            });
 
 
-      });
+            //////Games section/////////
+            $('#games_button').show();
+            $('#games_button').click(function(){
+
+                //hide stuff
+                $('#film_1916').hide();
+                $('#film_today').hide();
+                $('#chaplin_link').hide();
+                $('#starwars_link').hide();
+
+                //1916 button
+                $('#games_1916').show();
+                $('#games_today').show();
+
+                $('#games_1916_div').show();
+                $('#games_1916_div2').show();
+                $('#games_today_div').show();
+                $('#games_today_div2').show();
+                $('#games_today_div3').show();
+
+                //right image
+                $('#right_half').css({
+                    "background-image" : "url('" + images[9].src + "')",
+                    "opacity" : '1.0',
+                });
+
+                //left image
+                $('#left_half').css({
+                    "background-image" : "url('" + images[12].src + "')",
+                    "opacity" : '1.0',
+                });
+
+
+            });
+
+
+
+            $('#games_1916_div').click(function(){
+                $('#sidebar_text').text("Sport was just as popular 100 years ago as it is today. GAA and rugby were widely played as was one of the main forms of socialising amongst the younger generation. It was as much about coming together as it was about competing. Sport was played by all classes in all areas and was remarkably diverse.");
+            });
+
+            $('#games_1916_div2').click(function(){
+                $('#sidebar_text').text("In 1920 on a day we now call Bloody Sunday, a football match in Croke Park was attacked by British forces. Sadly, 14 people were killed and 65 were injured.");
+            });
+
+
+
+            $('#games_today_div').click(function(){
+                $('#sidebar_text').text("Today, sport is a passionate hobby of most if not all young people. Ireland in particular have contributed to the international sports scene. Hurling is known as the fastest field sport in the world. The fastest shot recorded to date was hit by TJ Reid of Kilkenny against Limerick in the 2014 GAA All Ireland Senior Hurling Championship semi-final, when a remarkable speed of 181.1 kph was measured.");
+
+                $('#drone_link').hide();
+            })
+
+            $('#games_today_div2').click(function(){
+                $('#sidebar_text').text("As well as hurling, Gaelic football is widely played among the youth. It is difficult to find a person in Ireland who hasn't at some point played on a football team, whether it be their school team or local club. International rules came about in 1967. It facilitates both Australian rules football and Gaelic football. The game attracts large crowds and passionate players.");
+
+                $('#drone_link').hide();
+            })
+
+            $('#games_today_div3').click(function(){
+                $('#sidebar_text').text("We now have access to a vast quantity of digital media and gaming. New video games, consoles, phones and other technologies come out everyday. We even have a new sport called first person view (FPV) drone racing! (Check it out!)");
+
+                $('#drone_link').show();
+            })
+
+            $('.section4').hover(
+                    function(){
+                        $(this).css({"border-style" : "solid", "border-width" : "5px", "border-color" : "white"});
+                    }, function() {
+                        $(this).css({"border-style" : "none"});
+                    });
+        });
 
 
 });
@@ -992,42 +1041,55 @@
 
   <!--Entertainment section-->
   <div id="myDialog1">
-    <p>To use your history app, slide your mouse over each photo. When a white circle or box appears, click it and see what it says in the sidebar.</p> 
-    <p>There are four sections: country, school, home and entertainment. </p>
+      <p>To use your history app, slide your mouse over each photo. When a white circle or box appears, click to see what it says in the sidebar.</p>
+      <p>There are four sections: Ireland, school, home and entertainment. On the left of the page you can click and see what there is to learn about the Ireland of today. On the right you will discover what there is to know about Ireland 100 years ago. </p>
+      <p>Have fun!!!</p>
   </div>
 
   <!--Film section-->
   <div id = "film_button" class="stuff_to_hide">Film</div>
   <div class="film_section">
-   <div id= "film_1916" class = "stuff_to_hide">Film 1916</div>
-   <div id= "film_today" class = "stuff_to_hide">Film Today</div>
-   <div id="chaplin_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/F-Y45rcGX3s?autoplay=0"></iframe></div>
-   <div id="starwars_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sGbxmsDFVnE?autoplay=0"></iframe></div>
- </div>
- <!--Games section-->
- <div id="games_button" class = "stuff_to_hide">Games</div>
- <div id= "games_1916" class = "stuff_to_hide">Games 1916</div>
- <div id= "games_today" class = "stuff_to_hide">Games Today</div>
+      <div id= "film_1916" class = "stuff_to_hide">Film 1916<div id="click_me">click me!</div></div>
+      <div id= "film_today" class = "stuff_to_hide">Film Today<div id="click_me2">click me!</div></div>
+      <div id="chaplin_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/F-Y45rcGX3s?autoplay=0"></iframe></div>
+      <div id="starwars_link" class = "stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sGbxmsDFVnE?autoplay=0"></iframe></div>
+  </div>
+  <!--Games section-->
+  <div id="games_button" class = "stuff_to_hide">Games</div>
 
- <!-- Ireland Section -->
- <div id="spire_fact" class = "section1"></div>
- <div id="life_fact" class = "section1"></div>
- <div id="destroyed_fact" class = "section1"></div>
- <div id="death_fact" class = "section1"></div>
- 
- <!-- Home -->
- <div id="potato_fact" class = "section3"></div>
- <div id="dwelling_fact" class = "section3"></div>
- <div id="food_fact" class = "section3"></div>
- <div id="homesize_fact" class = "section3"></div>
 
- <!--left half of screen--> <div id="left_half"> <div id="no_irish_btn"
- class="info_btn"></div> <div id="teachers_btn" class="info_btn"></div> </div>
+
+
+  <div id="drone_link" class="stuff_to_hide"><iframe width="410" height="335" src="http://www.youtube.com/embed/sFHRcW6qnvo?autoplay=0"></iframe></div>
+
+
+
+
+ <!--left half of screen-->
+  <div id="left_half">
+      <div id= "games_1916" class = "stuff_to_hide">Games 1916</div>
+      <div id="games_1916_div" class="section4"></div>
+      <div id="games_1916_div2" class="section4"></div>
+      <div id="food_fact" class = "section3"></div>
+      <div id="homesize_fact" class = "section3"></div>
+      <div id="no_irish_btn" class="info_btn"></div>
+      <div id="teachers_btn" class="info_btn"></div>
+      <div id="spire_fact" class = "section1"></div>
+      <div id="life_fact" class = "section1"></div>
+  </div>
 
  <!--right half of screen-->
  <div id="right_half">
-  <div id="conditions_btn" class="info_btn"></div>
-  <div id="marriage_btn" class="info_btn"></div>
+     <div id= "games_today" class = "stuff_to_hide">Games Today</div>
+     <div id="games_today_div" class="section4"></div>
+     <div id="games_today_div2" class="section4"></div>
+     <div id="games_today_div3" class="section4"></div>
+     <div id="potato_fact" class = "section3"></div>
+     <div id="dwelling_fact" class = "section3"></div>
+     <div id="death_fact" class = "section1"></div>
+     <div id="destroyed_fact" class = "section1"></div>
+     <div id="conditions_btn" class="info_btn"></div>
+     <div id="marriage_btn" class="info_btn"></div>
 </div>
 
 <!--sidebar-->
